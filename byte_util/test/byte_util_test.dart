@@ -1,10 +1,12 @@
+import 'dart:typed_data';
+
 import 'package:byte_util/byte_util.dart';
 
 void main() {
-  testFromReadable();
-  testToReadable();
-  testToBase64();
-  testFromBase64();
+  // testFromReadable();
+  // testToReadable();
+  // testToBase64();
+  // testFromBase64();
   testClone();
 }
 
@@ -20,10 +22,33 @@ void testFromReadable() {
   print(bytes2);
 }
 
-void testToReadable() {}
+void testToReadable() {
+  final bytes = Uint8List.fromList([0x80, 01, 02, 0xff, 0xA1, 30, 10, 20, 77]);
+  final str1 = ByteUtil.toReadable(bytes);
+  // 0x80 0x1 0x2 0xFF 0xA1 0x1E 0xA 0x14 0x4D
+  print(str1);
+  final str2 = ByteUtil.toReadable(bytes, radix: Radix.dec);
+  // 128 1 2 255 161 30 10 20 77
+  print(str2);
+}
 
-void testToBase64() {}
+void testToBase64() {
+  final bytes = Uint8List.fromList([0x80, 01, 02, 0xff, 0xA1, 30, 10, 32]);
+  final base64 = ByteUtil.toBase64(bytes);
+  // gAEC/6EeCiA=
+  print(base64);
+}
 
-void testFromBase64() {}
+void testFromBase64() {
+  final base64 = 'gAEC/6EeCiA=';
+  final bytes = ByteUtil.fromBase64(base64);
+  // [128, 1, 2, 255, 161, 30, 10, 32]
+  print(bytes);
+}
 
-void testClone() {}
+void testClone() {
+  final bytes = Uint8List.fromList([0x80, 01, 02, 0xff, 0xA1, 30, 10, 32]);
+  final clone = ByteUtil.clone(bytes);
+  // [128, 1, 2, 255, 161, 30, 10, 32]
+  print(clone);
+}
