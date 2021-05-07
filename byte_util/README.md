@@ -3,7 +3,7 @@
 dart byte utility
 
 
-`
+```
 void testFromReadable() {
   const str1 = '01 02, ff 0x10,0xfa , 90 76 AF a0';
   final bytes1 = ByteUtil.fromReadable(str1);
@@ -47,4 +47,4 @@ void testClone() {
   print(clone);
 }
 
-`
+```
