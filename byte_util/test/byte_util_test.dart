@@ -3,10 +3,10 @@ import 'dart:typed_data';
 import 'package:byte_util/byte_util.dart';
 
 void main() {
-  // testFromReadable();
-  // testToReadable();
-  // testToBase64();
-  // testFromBase64();
+  testFromReadable();
+  testToReadable();
+  testToBase64();
+  testFromBase64();
   testClone();
 }
 
