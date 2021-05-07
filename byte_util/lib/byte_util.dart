@@ -3,6 +3,7 @@ library byte_util;
 import 'dart:convert';
 import 'dart:typed_data';
 
+/// Radix: hex&dec
 enum Radix {
   hex,
   dec,
@@ -16,7 +17,7 @@ abstract class ByteUtil {
   /// byte splitted by space or comma,
   /// e.g. '0xaa ff 01 02 ,03 ,00 A0'
   /// default radix is hex,or specified radix
-  static Uint8List fromReadable(String readable, {Radix radix = Radix.hex}) {
+  static Uint8List? fromReadable(String? readable, {Radix radix = Radix.hex}) {
     if (readable == null || readable.isEmpty) return null;
 
     final List<int> list = [];
@@ -42,8 +43,9 @@ abstract class ByteUtil {
 
   /// convert byytes array to readable string.
   /// default radix is hex ,or specified radix
-  static String toReadable(Uint8List buffer, {Radix radix = Radix.hex}) {
+  static String? toReadable(Uint8List? buffer, {Radix radix = Radix.hex}) {
     if (buffer == null || buffer.length <= 0) return null;
+
     final List<String> list = [];
     for (int data in buffer) {
       var str = data.toRadixString(radix == Radix.hex ? 16 : 10);
@@ -55,22 +57,25 @@ abstract class ByteUtil {
   }
 
   /// convert bytes array to base64 string
-  static String toBase64(Uint8List buffer) {
+  static String? toBase64(Uint8List? buffer) {
     if (buffer == null || buffer.length <= 0) return null;
+
     final str = base64Encode(buffer);
     return str;
   }
 
   /// convert base64 string to bytes array
-  static Uint8List fromBase64(String base64) {
+  static Uint8List? fromBase64(String? base64) {
     if (base64 == null || base64.length <= 0) return null;
+
     final data = base64Decode(base64);
     return data;
   }
 
   /// clone bytes array
-  static Uint8List clone(Uint8List origin) {
+  static Uint8List? clone(Uint8List? origin) {
     if (origin == null) return null;
+
     return Uint8List.fromList(origin);
   }
 }

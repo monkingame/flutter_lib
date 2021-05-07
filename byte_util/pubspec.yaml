@@ -1,10 +1,10 @@
 name: byte_util
 description: byte utilities can read string to byte array,or convert byte array to readable string, or base64 convert.
-version: 0.1.1
+version: 0.2.2
 homepage: https://github.com/monkingame/flutter_lib
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
