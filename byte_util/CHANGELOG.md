@@ -1,3 +1,5 @@
+## [0.0.3] - API
+* document
 
 ## [0.0.2] - example
 * example
