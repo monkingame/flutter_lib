@@ -8,9 +8,14 @@ enum Radix {
   dec,
 }
 
+/// provide bytes util
 abstract class ByteUtil {
   ByteUtil._();
 
+  /// covnert readable string to bytes array.
+  /// byte splitted by space or comma,
+  /// e.g. '0xaa ff 01 02 ,03 ,00 A0'
+  /// default radix is hex,or specified radix
   static Uint8List fromReadable(String readable, {Radix radix = Radix.hex}) {
     if (readable == null || readable.isEmpty) return null;
 
@@ -35,6 +40,8 @@ abstract class ByteUtil {
     return Uint8List.fromList(list);
   }
 
+  /// convert byytes array to readable string.
+  /// default radix is hex ,or specified radix
   static String toReadable(Uint8List buffer, {Radix radix = Radix.hex}) {
     if (buffer == null || buffer.length <= 0) return null;
     final List<String> list = [];
@@ -47,18 +54,21 @@ abstract class ByteUtil {
     return result;
   }
 
+  /// convert bytes array to base64 string
   static String toBase64(Uint8List buffer) {
     if (buffer == null || buffer.length <= 0) return null;
     final str = base64Encode(buffer);
     return str;
   }
 
+  /// convert base64 string to bytes array
   static Uint8List fromBase64(String base64) {
     if (base64 == null || base64.length <= 0) return null;
     final data = base64Decode(base64);
     return data;
   }
 
+  /// clone bytes array
   static Uint8List clone(Uint8List origin) {
     if (origin == null) return null;
     return Uint8List.fromList(origin);
