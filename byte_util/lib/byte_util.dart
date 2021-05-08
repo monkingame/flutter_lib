@@ -79,5 +79,17 @@ abstract class ByteUtil {
     return Uint8List.fromList(origin);
   }
 
-  static bool same(List<int>? array1, List<int>? array2) {}
+  static bool same(Uint8List? bytesFirst, Uint8List? bytesSecond) {
+    if (bytesFirst == null && bytesSecond == null) return true;
+    if (bytesFirst == null && bytesSecond != null) return false;
+    if (bytesFirst != null && bytesSecond == null) return false;
+    if (bytesFirst!.length != bytesSecond!.length) return false;
+    if (bytesFirst.length == 0 && bytesSecond.length == 0) return true;
+
+    for (int i = 0; i < bytesFirst.length; i++) {
+      if (bytesFirst[i] != bytesSecond[i]) return false;
+    }
+
+    return true;
+  }
 }
