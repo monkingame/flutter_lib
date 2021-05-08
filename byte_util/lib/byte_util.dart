@@ -86,7 +86,7 @@ abstract class ByteUtil {
     // if (bytesFirst!.length != bytesSecond!.length) return false;
     // if (bytesFirst.length == 0 && bytesSecond.length == 0) return true;
 
-    if (bytesFirst == null) return bytesSecond != null;
+    if (bytesFirst == null) return bytesSecond == null;
     if (bytesSecond == null) return false;
     if (bytesFirst.length != bytesSecond.length) return false;
 
