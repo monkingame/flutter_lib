@@ -78,4 +78,6 @@ abstract class ByteUtil {
 
     return Uint8List.fromList(origin);
   }
+
+  static bool same(List<int>? array1, List<int>? array2) {}
 }

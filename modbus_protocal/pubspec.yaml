@@ -1,8 +1,7 @@
 name: modbus_protocal
 description: A new Flutter package project.
 version: 0.1.0
-author:
-homepage:
+homepage: https://github.com/monkingame/flutter_lib/tree/main/modbus_protocal
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

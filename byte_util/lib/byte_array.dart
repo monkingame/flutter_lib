@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+/// byte array
 class ByteArray {
   Uint8List _bytes = Uint8List(0);
 
