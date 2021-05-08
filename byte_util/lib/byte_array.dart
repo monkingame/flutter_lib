@@ -67,6 +67,5 @@ class ByteArray {
     return Uint8List.fromList(list);
   }
 
-  // static bool same(List<int> array1, List<int> array2) {}
   // static List<int> extract(List<int> input, int index, int length) {}
 }
