@@ -9,7 +9,7 @@ void main() {
 }
 
 void testByteWord() {
-  final bw = ByteWord(123);
+  final bw = ByteWord(1034);
   print(bw.origin);
   print(bw.word);
   print('${bw.high} , ${bw.low}');
