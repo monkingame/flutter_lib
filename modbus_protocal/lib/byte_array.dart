@@ -17,6 +17,14 @@ class ByteArray {
     _bytes = _combine(array1, array2);
   }
 
+  ByteArray.combine1(List<int> array, int value) {
+    _bytes = _combine(array, _toArray(value));
+  }
+
+  ByteArray.combine2(int value, List<int> array) {
+    _bytes = _combine(_toArray(value), array);
+  }
+
   Uint8List _toArray(int value) {
     return Uint8List.fromList([value]);
   }

@@ -32,4 +32,10 @@ void testByteArray() {
 
   final array4 = ByteArray.combineArrays([1, 2, 3], [0xf0, 0xf2, 0xff]);
   print(array4.bytes);
+
+  final array5 = ByteArray.combine1([1, 2, 3], 0xff);
+  print(array5.bytes);
+
+  final array6 = ByteArray.combine2(0xff, [1, 2, 3]);
+  print(array6.bytes);
 }
