@@ -4,12 +4,12 @@ abstract class ModbusCRC {
   ModbusCRC._();
 
   static int caculateCRC(Uint8List bytes) {
-    if (bytes == null || bytes.length <= 0) return 0;
+    if (bytes.length <= 0) return 0;
 
     int tmp;
     int wordCRC = 0xFFFF;
     for (int i = 0; i < bytes.length; i++) {
-      tmp = (bytes[i] ^ wordCRC);
+      tmp = (bytes[i] ^ wordCRC) & 0xFF;
       wordCRC >>= 8;
       wordCRC ^= _crcTable[tmp];
     }
@@ -273,6 +273,6 @@ abstract class ModbusCRC {
     0X4100,
     0X81C1,
     0X8081,
-    0X4040
+    0X4040,
   ];
 }

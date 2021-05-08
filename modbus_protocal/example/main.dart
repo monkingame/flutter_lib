@@ -1,9 +1,6 @@
 import '../lib/modbus_protocal.dart';
 
 void main() {
-  // test('adds one to input values', () {
-  //   expect(calculator.addOne(0), 1);
-  // });
   testModbusProtocol();
 }
 

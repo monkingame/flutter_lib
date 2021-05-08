@@ -1,8 +1,7 @@
 library modbus_protocal;
 
 import 'dart:typed_data';
-
-import 'package:modbus_protocal/byte_word.dart';
+import 'package:byte_util/byte_word.dart';
 import 'package:modbus_protocal/modbus_crc.dart';
 
 class ModbusProtocol {
@@ -12,8 +11,10 @@ class ModbusProtocol {
 
   ByteWord get crc => _crc;
 
-  ModbusProtocol(this.input) : assert(input != null) {
+  ModbusProtocol(this.input) {
     final bytes = Uint8List.fromList(input);
+    // print(bytes.length);
+
     int crc = ModbusCRC.caculateCRC(bytes);
     _crc = ByteWord(crc);
   }
