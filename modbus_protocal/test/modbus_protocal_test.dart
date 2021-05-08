@@ -1,3 +1,4 @@
+import 'package:modbus_protocal/byte_array.dart';
 import 'package:modbus_protocal/byte_word.dart';
 
 void main() {
@@ -5,7 +6,8 @@ void main() {
   //   expect(calculator.addOne(0), 1);
   // });
 
-  testByteWord();
+  // testByteWord();
+  testByteArray();
 }
 
 void testByteWord() {
@@ -13,4 +15,12 @@ void testByteWord() {
   print(bw.origin);
   print(bw.word);
   print('${bw.high} , ${bw.low}');
+}
+
+void testByteArray() {
+  final array1 = ByteArray([1, 2, 3]);
+  print(array1.bytes);
+
+  final array2 = ByteArray.fromByte(3);
+  print(array2.bytes);
 }
