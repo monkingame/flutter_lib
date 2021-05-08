@@ -26,25 +26,5 @@ void testToReadable() {
   print(str2);
 }
 
-void testToBase64() {
-  final bytes = Uint8List.fromList([0x80, 01, 02, 0xff, 0xA1, 30, 10, 32]);
-  final base64 = ByteUtil.toBase64(bytes);
-  // gAEC/6EeCiA=
-  print(base64);
-}
-
-void testFromBase64() {
-  final base64 = 'gAEC/6EeCiA=';
-  final bytes = ByteUtil.fromBase64(base64);
-  // [128, 1, 2, 255, 161, 30, 10, 32]
-  print(bytes);
-}
-
-void testClone() {
-  final bytes = Uint8List.fromList([0x80, 01, 02, 0xff, 0xA1, 30, 10, 32]);
-  final clone = ByteUtil.clone(bytes);
-  // [128, 1, 2, 255, 161, 30, 10, 32]
-  print(clone);
-}
 
 ```

@@ -1,3 +1,5 @@
+## [0.3.0] - byte array & byte word
+* array &  word
 ## [0.2.2] - null safety
 * null safety
 ## [0.2.1] - no null safety

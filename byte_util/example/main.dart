@@ -1,6 +1,8 @@
 import 'dart:typed_data';
 
+import 'package:byte_util/byte_array.dart';
 import 'package:byte_util/byte_util.dart';
+import 'package:byte_util/byte_word.dart';
 
 void main() {
   testFromReadable();
@@ -8,6 +10,8 @@ void main() {
   testToBase64();
   testFromBase64();
   testClone();
+  testByteWord();
+  testByteArray();
 }
 
 void testFromReadable() {
@@ -51,4 +55,38 @@ void testClone() {
   final clone = ByteUtil.clone(bytes);
   // [128, 1, 2, 255, 161, 30, 10, 32]
   print(clone);
+}
+
+void testByteWord() {
+  final bw = ByteWord(1034);
+  print(bw.value);
+  print(bw.word);
+  print('${bw.high} , ${bw.low}');
+}
+
+void testByteArray() {
+  final array1 = ByteArray([1, 2, 3]);
+  print(array1.bytes);
+
+  final array2 = ByteArray.fromByte(3);
+  print(array2.bytes);
+
+  // final bytes = Uint8List.fromList([3, 2, 1]);
+  final array3 = ByteArray(Uint8List.fromList([3, 2, 1]));
+  print(array3.bytes);
+
+  final array4 = ByteArray.combineArrays([1, 2, 3], [0xf0, 0xf2, 0xff]);
+  print(array4.bytes);
+
+  final array5 = ByteArray.combine1([1, 2, 3], 0xff);
+  print(array5.bytes);
+
+  final array6 = ByteArray.combine2(0xff, [1, 2, 3]);
+  print(array6.bytes);
+
+  array6.append(123);
+  print(array6.bytes);
+
+  array6.appendArray([33, 22, 11]);
+  print(array6.bytes);
 }
