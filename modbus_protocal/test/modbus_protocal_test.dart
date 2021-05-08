@@ -38,4 +38,10 @@ void testByteArray() {
 
   final array6 = ByteArray.combine2(0xff, [1, 2, 3]);
   print(array6.bytes);
+
+  array6.append(123);
+  print(array6.bytes);
+
+  array6.appendArray([33, 22, 11]);
+  print(array6.bytes);
 }

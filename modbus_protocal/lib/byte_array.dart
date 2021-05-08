@@ -25,6 +25,24 @@ class ByteArray {
     _bytes = _combine(_toArray(value), array);
   }
 
+  Uint8List append(int value) {
+    if (_bytes == null) {
+      _bytes = _toArray(value);
+    } else {
+      _bytes = _combine(_bytes, _toArray(value));
+    }
+    return _bytes;
+  }
+
+  Uint8List appendArray(List<int> array) {
+    if (_bytes == null) {
+      _bytes = Uint8List.fromList(array);
+    } else {
+      _bytes = _combine(_bytes, array);
+    }
+    return _bytes;
+  }
+
   Uint8List _toArray(int value) {
     return Uint8List.fromList([value]);
   }
