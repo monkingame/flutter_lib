@@ -1,5 +1,5 @@
 class ByteWord {
-  final int origin;
+  final int value;
 
   int _high;
   int _low;
@@ -9,8 +9,8 @@ class ByteWord {
 
   List<int> get word => [_high, _low];
 
-  ByteWord(this.origin) {
-    _high = (origin >> 8) & 0xFF;
-    _low = origin & 0xFF;
+  ByteWord(this.value) {
+    _high = (value >> 8) & 0xFF;
+    _low = value & 0xFF;
   }
 }
