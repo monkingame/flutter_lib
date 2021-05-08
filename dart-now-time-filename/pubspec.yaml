@@ -1,8 +1,7 @@
 name: dart_now_time_filename
 description: Generate now time string for filename.The time stamp is useful for logging and searching.
-version: 0.1.1
-author: sunshouhua <946966995@qq.com>
-homepage: https://github.com/monkingame/dart-now-time-filename.git
+version: 0.2.1
+homepage: https://github.com/monkingame/flutter_lib/tree/main/dart-now-time-filename
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
