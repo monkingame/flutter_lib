@@ -1,8 +1,8 @@
 class ByteWord {
   final int value;
 
-  int _high;
-  int _low;
+  int _high = 0;
+  int _low = 0;
 
   int get high => _high;
   int get low => _low;

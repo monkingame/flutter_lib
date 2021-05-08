@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 class ByteArray {
-  Uint8List _bytes;
+  Uint8List _bytes = Uint8List(0);
 
   Uint8List get bytes => _bytes;
 
@@ -26,21 +26,23 @@ class ByteArray {
   }
 
   Uint8List append(int value) {
-    if (_bytes == null) {
-      _bytes = _toArray(value);
-    } else {
-      _bytes = _combine(_bytes, _toArray(value));
-    }
-    return _bytes;
+    // if (_bytes == null) {
+    //   _bytes = _toArray(value);
+    // } else {
+    //   _bytes = _combine(_bytes, _toArray(value));
+    // }
+    // return _bytes;
+    return _combine(_bytes, _toArray(value));
   }
 
   Uint8List appendArray(List<int> array) {
-    if (_bytes == null) {
-      _bytes = Uint8List.fromList(array);
-    } else {
-      _bytes = _combine(_bytes, array);
-    }
-    return _bytes;
+    // if (_bytes == null) {
+    //   _bytes = Uint8List.fromList(array);
+    // } else {
+    //   _bytes = _combine(_bytes, array);
+    // }
+    // return _bytes;
+    return _combine(_bytes, array);
   }
 
   Uint8List _toArray(int value) {
@@ -48,9 +50,9 @@ class ByteArray {
   }
 
   Uint8List _combine(List<int> array1, List<int> array2) {
-    if (array1 == null && array2 == null) return null;
-    if (array1 == null) return Uint8List.fromList(array2);
-    if (array2 == null) return Uint8List.fromList(array1);
+    // if (array1 == null && array2 == null) return null;
+    // if (array1 == null) return Uint8List.fromList(array2);
+    // if (array2 == null) return Uint8List.fromList(array1);
 
     var list = List<int>.filled(array1.length + array2.length, 0);
 
