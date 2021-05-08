@@ -1,6 +1,8 @@
 import 'dart:typed_data';
 
 abstract class ModbusCRC {
+  ModbusCRC._();
+
   static int caculateCRC(Uint8List bytes) {
     if (bytes == null || bytes.length <= 0) return 0;
 
