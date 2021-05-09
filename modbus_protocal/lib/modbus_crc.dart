@@ -1,8 +1,10 @@
 import 'dart:typed_data';
 
+/// modbus CRC caculator
 abstract class ModbusCRC {
   ModbusCRC._();
 
+  /// caculate CRC by input bytes array
   static int caculateCRC(Uint8List bytes) {
     if (bytes.length <= 0) return 0;
 
@@ -17,6 +19,7 @@ abstract class ModbusCRC {
     return wordCRC;
   }
 
+  /// crc table
   static List<int> _crcTable = [
     0X0000,
     0XC0C1,
