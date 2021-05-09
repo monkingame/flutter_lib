@@ -1,7 +1,9 @@
+## [1.1.0] - fix
+* fixed
 ## [1.0.3] - fix
-* fixed: word from List<int> to Uint8List
+* fixed: word to Uint8List
 ## [1.0.2] - fix
-* fixed: word from List<int> to Uint8List
+* fixed: word to Uint8List
 ## [1.0.1] - same & extract
 * same & extract
 ## [1.0.0] - same & extract
