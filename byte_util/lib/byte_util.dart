@@ -96,4 +96,17 @@ abstract class ByteUtil {
 
     return true;
   }
+
+  static Uint8List? extract(Uint8List? input, int index, int length) {
+    if (input == null || input.length <= 0 || length <= 0 || index < 0)
+      return null;
+
+    int end = index + length;
+    if (end >= input.length) {
+      end = input.length;
+    }
+
+    final sub = input.sublist(index, end);
+    return sub;
+  }
 }

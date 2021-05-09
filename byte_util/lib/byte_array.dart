@@ -66,6 +66,4 @@ class ByteArray {
 
     return Uint8List.fromList(list);
   }
-
-  // static List<int> extract(List<int> input, int index, int length) {}
 }
