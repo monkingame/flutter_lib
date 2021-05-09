@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 class ByteWord {
   final int value;
 
@@ -7,7 +9,7 @@ class ByteWord {
   int get high => _high;
   int get low => _low;
 
-  List<int> get word => [_high, _low];
+  Uint8List get word => Uint8List.fromList([_high, _low]);
 
   ByteWord(this.value) {
     _high = (value >> 8) & 0xFF;
