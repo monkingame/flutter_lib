@@ -79,27 +79,30 @@ abstract class ByteUtil {
     return Uint8List.fromList(origin);
   }
 
-  static bool same(Uint8List? bytesFirst, Uint8List? bytesSecond) {
+  static bool same(Uint8List? bytes1, Uint8List? bytes2) {
     // if (bytesFirst == null && bytesSecond == null) return true;
     // if (bytesFirst == null && bytesSecond != null) return false;
     // if (bytesFirst != null && bytesSecond == null) return false;
     // if (bytesFirst!.length != bytesSecond!.length) return false;
     // if (bytesFirst.length == 0 && bytesSecond.length == 0) return true;
 
-    if (bytesFirst == null) return bytesSecond == null;
-    if (bytesSecond == null) return false;
-    if (bytesFirst.length != bytesSecond.length) return false;
+    if (bytes1 == null) return bytes2 == null;
+    if (bytes2 == null) return false;
+    if (bytes1.length != bytes2.length) return false;
 
-    for (int i = 0; i < bytesFirst.length; i++) {
-      if (bytesFirst[i] != bytesSecond[i]) return false;
+    for (int i = 0; i < bytes1.length; i++) {
+      if (bytes1[i] != bytes2[i]) return false;
     }
 
     return true;
   }
 
   static Uint8List? extract(Uint8List? input, int index, int length) {
-    if (input == null || input.length <= 0 || length <= 0 || index < 0)
+    if (input == null || input.length <= 0 || length <= 0 || index < 0) {
       return null;
+    }
+
+    if (index >= input.length) return null;
 
     int end = index + length;
     if (end >= input.length) {

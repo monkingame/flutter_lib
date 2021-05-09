@@ -1,3 +1,5 @@
+## [1.0.0] - same & extract
+* same & extract
 ## [0.3.0] - byte array & byte word
 * array &  word
 ## [0.2.2] - null safety
