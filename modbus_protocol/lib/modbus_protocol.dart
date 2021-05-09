@@ -1,4 +1,4 @@
-library modbus_protocal;
+library modbus_protocol;
 
 import 'dart:typed_data';
 import 'package:byte_util/byte_word.dart';
