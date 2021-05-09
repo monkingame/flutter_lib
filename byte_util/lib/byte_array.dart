@@ -6,7 +6,7 @@ class ByteArray {
 
   Uint8List get bytes => _bytes;
 
-  ByteArray(List<int> array) {
+  ByteArray(Uint8List array) {
     _bytes = Uint8List.fromList(array);
   }
 
@@ -14,15 +14,15 @@ class ByteArray {
     _bytes = _toArray(value);
   }
 
-  ByteArray.combineArrays(List<int> array1, List<int> array2) {
+  ByteArray.combineArrays(Uint8List array1, Uint8List array2) {
     _bytes = _combine(array1, array2);
   }
 
-  ByteArray.combine1(List<int> array, int value) {
+  ByteArray.combine1(Uint8List array, int value) {
     _bytes = _combine(array, _toArray(value));
   }
 
-  ByteArray.combine2(int value, List<int> array) {
+  ByteArray.combine2(int value, Uint8List array) {
     _bytes = _combine(_toArray(value), array);
   }
 
@@ -36,7 +36,7 @@ class ByteArray {
     return _combine(_bytes, _toArray(value));
   }
 
-  Uint8List appendArray(List<int> array) {
+  Uint8List appendArray(Uint8List array) {
     // if (_bytes == null) {
     //   _bytes = Uint8List.fromList(array);
     // } else {
@@ -50,7 +50,7 @@ class ByteArray {
     return Uint8List.fromList([value]);
   }
 
-  Uint8List _combine(List<int> array1, List<int> array2) {
+  Uint8List _combine(Uint8List array1, Uint8List array2) {
     // if (array1 == null && array2 == null) return null;
     // if (array1 == null) return Uint8List.fromList(array2);
     // if (array2 == null) return Uint8List.fromList(array1);
