@@ -1,8 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:byte_util/byte_array.dart';
 import 'package:byte_util/byte_util.dart';
-import 'package:byte_util/byte_word.dart';
 
 void main() {
   testFromReadable();
@@ -10,8 +8,8 @@ void main() {
   testToBase64();
   testFromBase64();
   testClone();
-  testByteWord();
-  testByteArray();
+  testSame();
+  testExtract();
 }
 
 void testFromReadable() {
@@ -57,36 +55,35 @@ void testClone() {
   print(clone);
 }
 
-void testByteWord() {
-  final bw = ByteWord(1034);
-  print(bw.value);
-  print(bw.word);
-  print('${bw.high} , ${bw.low}');
+void testSame() {
+  final bytes1 = Uint8List.fromList([0x80, 01, 02, 0xff, 0xA1, 30, 10, 32]);
+  final bytes2 = Uint8List.fromList([0xA1, 30, 10, 32]);
+  final same = ByteUtil.same(bytes1, bytes2);
+  // true
+  print(same);
 }
 
-void testByteArray() {
-  final array1 = ByteArray([1, 2, 3]);
-  print(array1.bytes);
+void testExtract() {
+  final bytes = Uint8List.fromList([0x80, 01, 02, 0xff, 0xA1, 30, 10, 32]);
 
-  final array2 = ByteArray.fromByte(3);
-  print(array2.bytes);
+  // 0x1 0x2 0xFF
+  print(ByteUtil.toReadable(ByteUtil.extract(bytes, 1, 3)));
 
-  // final bytes = Uint8List.fromList([3, 2, 1]);
-  final array3 = ByteArray(Uint8List.fromList([3, 2, 1]));
-  print(array3.bytes);
+  // null
+  print(ByteUtil.toReadable(ByteUtil.extract(bytes, 0, 0)));
 
-  final array4 = ByteArray.combineArrays([1, 2, 3], [0xf0, 0xf2, 0xff]);
-  print(array4.bytes);
+  // 0x80 0x1 0x2 0xFF 0xA1 0x1E 0xA 0x20
+  print(ByteUtil.toReadable(ByteUtil.extract(bytes, 0, 100)));
 
-  final array5 = ByteArray.combine1([1, 2, 3], 0xff);
-  print(array5.bytes);
+  // null
+  print(ByteUtil.toReadable(ByteUtil.extract(bytes, 10, 8)));
 
-  final array6 = ByteArray.combine2(0xff, [1, 2, 3]);
-  print(array6.bytes);
+  // 0x80 0x1 0x2 0xFF 0xA1 0x1E 0xA 0x20
+  print(ByteUtil.toReadable(ByteUtil.extract(bytes, 0, 8)));
 
-  array6.append(123);
-  print(array6.bytes);
+  // null
+  print(ByteUtil.toReadable(ByteUtil.extract(bytes, 8, 1)));
 
-  array6.appendArray([33, 22, 11]);
-  print(array6.bytes);
+  // 0x20
+  print(ByteUtil.toReadable(ByteUtil.extract(bytes, 7, 1)));
 }

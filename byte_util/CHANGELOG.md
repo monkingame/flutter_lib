@@ -1,3 +1,5 @@
+## [1.0.1] - same & extract
+* same & extract
 ## [1.0.0] - same & extract
 * same & extract
 ## [0.3.0] - byte array & byte word
