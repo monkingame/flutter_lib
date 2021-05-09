@@ -1,6 +1,6 @@
 // use: byte_util: ^1.1.0
 import 'package:byte_util/byte_util.dart';
-import '../lib/modbus_protocal.dart';
+import 'package:modbus_protocol/modbus_protocol.dart';
 
 void main() {
   testModbusProtocol();
