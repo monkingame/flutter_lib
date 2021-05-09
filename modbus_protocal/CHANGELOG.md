@@ -1,2 +1,4 @@
+## [1.0.0] - Modbus protocol
+* fixed
 ## [0.1.0] - Modbus protocol
 * init
