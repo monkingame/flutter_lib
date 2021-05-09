@@ -55,7 +55,7 @@ class ByteArray {
     // if (array1 == null) return Uint8List.fromList(array2);
     // if (array2 == null) return Uint8List.fromList(array1);
 
-    var list = List<int>.filled(array1.length + array2.length, 0);
+    var list = Uint8List(array1.length + array2.length);
 
     for (int i = 0; i < array1.length; i++) {
       list[i] = array1[i];

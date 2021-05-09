@@ -3,13 +3,13 @@ import 'dart:typed_data';
 import 'package:byte_util/byte_util.dart';
 
 void main() {
-  // testFromReadable();
+  testFromReadable();
   // testToReadable();
   // testToBase64();
   // testFromBase64();
   // testClone();
   // testSame();
-  testExtract();
+  // testExtract();
 }
 
 void testFromReadable() {
