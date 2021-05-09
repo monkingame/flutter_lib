@@ -2,7 +2,8 @@ library modbus_protocal;
 
 import 'dart:typed_data';
 import 'package:byte_util/byte_word.dart';
-import 'package:modbus_protocal/modbus_crc.dart';
+
+import 'modbus_crc.dart';
 
 /// modbus protocol
 class ModbusProtocol {
