@@ -3,7 +3,7 @@ library dart_now_time_filename;
 /// generate now time string for filename.
 class NowFilename {
   static String genNowFilename(
-      {String prefix: '', String ext: '', String seperator: '-'}) {
+      {String? prefix: '', String? ext: '', String? seperator: '-'}) {
     final now = DateTime.now();
     final y = now.year.toString().padLeft(4, '0');
     final m = now.month.toString().padLeft(2, '0');

@@ -18,5 +18,5 @@ void main() {
       prefix: 'header-', ext: '.mp3', seperator: '@'));
 
   // 20210508084919314149.mp3
-  print(NowFilename.genNowFilename(prefix: null, ext: '.mp3', seperator: null));
+  print(NowFilename.genNowFilename(ext: '.mp3', seperator: null));
 }
