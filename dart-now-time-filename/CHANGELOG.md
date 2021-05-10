@@ -1,3 +1,5 @@
+## [2.0.1] - update docs
+* update docs
 ## [2.0.0] - refactor
 * NowFilename.genNowFilename() deprecated. 
 * use NowFilename.gen() instead.
