@@ -1,4 +1,4 @@
-library image_button;
+library asset_button;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
