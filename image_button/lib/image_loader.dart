@@ -5,6 +5,9 @@ import 'package:image/image.dart' as libImage;
 import 'package:path/path.dart' as p;
 
 /// load asset image
+/// ImageLoader has no constructor, because of load image is async operation.
+/// factory Future<Image?> ImageLoader.load() can NOT works.
+/// The loading tool is static function.
 class ImageLoader {
   ImageLoader._(this.assetPath);
 
