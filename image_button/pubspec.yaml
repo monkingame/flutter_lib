@@ -1,6 +1,6 @@
 name: image_button
 description: image button library,include imagebutton & image loader & asset image,etc
-version: 0.1.0
+version: 1.0.0
 homepage: https://github.com/monkingame/flutter_lib/tree/main/image_button
 
 environment:
