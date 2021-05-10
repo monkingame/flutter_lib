@@ -31,11 +31,9 @@ class _WidgetImageButtonState extends State<WidgetImageButton>
 
   @override
   void initState() {
-    _image = widget.imageNormal;
-
-    // print(_image.);
-
     _initAnimation();
+
+    _image = widget.imageNormal;
 
     super.initState();
   }
