@@ -1,6 +1,6 @@
 name: websocket_daemon
-description: deamon to listen websocket server
-version: 1.0.0
+description: deamon listening to websocket server as notifier provider, reconnect when lost to server
+version: 1.0.1
 homepage: https://github.com/monkingame/flutter_lib/tree/main/websocket_daemon
 
 environment:
