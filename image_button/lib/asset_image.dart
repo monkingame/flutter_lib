@@ -28,17 +28,28 @@ class _WidgetAssetImageState extends State<WidgetAssetImage> {
     return FutureBuilder<Image?>(
       builder: (context, snap) {
         if (!snap.hasData) return Container();
-        if (snap.data == null) return Container();
+        // if (snap.data == null) return Container();
+        final image = snap.data;
+        if (image == null) return Container();
 
         var ratio = MediaQuery.of(context).devicePixelRatio;
         if (ratio == 0) ratio = 1;
         if (!widget.scaleDeviceRatio) ratio = 1;
 
-        final width = snap.data.width! / ratio;
-        final height = snap.data.height! / ratio;
+        // final width = image.width / ratio;
+        // final height = image.height / ratio;
 
-        if (widget.onSizeChanged != null) {
-          widget.onSizeChanged(Size(width, height));
+        final imageWidth = image.width;
+        final imageHeight = image.height;
+        final width = imageWidth == null ? null : imageWidth / ratio;
+        final height = imageHeight == null ? null : imageHeight / ratio;
+
+        // if (widget.onSizeChanged != null) {
+        //   widget.onSizeChanged(Size(width, height));
+        // }
+        final onChanged = widget.onSizeChanged;
+        if (onChanged != null && width != null && height != null) {
+          onChanged(Size(width, height));
         }
 
         return Container(
