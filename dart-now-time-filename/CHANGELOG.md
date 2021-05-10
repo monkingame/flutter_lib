@@ -1,3 +1,6 @@
+## [2.0.0] - refactor
+* NowFilename.genNowFilename() deprecated. 
+* use NowFilename.gen() instead.
 
 ## [1.0.0] - nullsafe
 * nullsafe
