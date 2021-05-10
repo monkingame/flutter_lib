@@ -1,3 +1,5 @@
+## [1.1.1] - example
+* update example
 ## [1.1.0] - fix
 * fixed
 ## [1.0.3] - fix

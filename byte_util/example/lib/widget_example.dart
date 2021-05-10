@@ -2,11 +2,25 @@ import 'dart:typed_data';
 
 import 'package:byte_util/byte_util.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class WidgetExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column();
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        ElevatedButton(
+            onPressed: testFromReadable, child: Text('FromReadable')),
+        ElevatedButton(onPressed: testToReadable, child: Text('ToReadable')),
+        ElevatedButton(onPressed: testToBase64, child: Text('ToBase64')),
+        ElevatedButton(onPressed: testFromBase64, child: Text('FromBase64')),
+        ElevatedButton(onPressed: testClone, child: Text('Clone')),
+        ElevatedButton(onPressed: testSame, child: Text('Same')),
+        ElevatedButton(onPressed: testExtract, child: Text('Extract')),
+      ],
+    );
   }
 
   void testFromReadable() {
