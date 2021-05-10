@@ -1,3 +1,5 @@
+## [1.1.0] - example
+* example
 ## [1.0.3] - reupload
 * fixed
 ## [1.0.2] - update readme
