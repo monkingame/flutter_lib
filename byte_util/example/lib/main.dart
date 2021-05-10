@@ -98,7 +98,7 @@ class WidgetExample extends StatelessWidget {
     final bytes1 = Uint8List.fromList([0x80, 01, 02, 0xff, 0xA1, 30, 10, 32]);
     final bytes2 = Uint8List.fromList([0xA1, 30, 10, 32]);
     final same = ByteUtil.same(bytes1, bytes2);
-    // true
+    // false
     print(same);
   }
 

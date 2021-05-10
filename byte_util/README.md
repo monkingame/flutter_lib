@@ -1,7 +1,36 @@
 # byte_util
 
-dart byte utility
 
+byte utility (static functions)
+
+* read string to bytes array
+  * radix: hex or dec
+  * string splitted by space or comma
+* convert bytes array to readable string
+* read base64 string to bytes array
+* convert bytes array to base64 string
+* clone bytes array
+* deep compare two bytes array
+* extract bytes array by start index and length
+
+------
+byte array class
+
+* init by bytes array
+* init by int(byte) value
+* combine two bytes array
+* combine bytes array and byte value
+* append bytes to tail
+  
+------
+byte word
+
+stands for DWORD
+
+composed of high byte and low byte
+
+------
+example
 
 ```
 void testFromReadable() {
