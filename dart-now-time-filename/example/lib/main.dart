@@ -26,23 +26,25 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ElevatedButton(
           child: Text('now time filename'),
           onPressed: () {
-            // 20210508-084919-305-149
+            // 20210510-181946-116-061
             print(NowFilename.gen());
+            // genNowFilename() is deprecated. use gen() instead.
+            print(NowFilename.genNowFilename());
 
-            // header-20210508-084919-314-149
+            // header-20210510-181946-118-059
             print(NowFilename.gen(prefix: 'header-'));
 
-            // 20210508-084919-314-149.mp3
+            // 20210510-181946-118-059.mp3
             print(NowFilename.gen(ext: '.mp3'));
 
-            // header-20210508-084919-314-149.mp3
+            // header-20210510-181946-118-059.mp3
             print(NowFilename.gen(prefix: 'header-', ext: '.mp3'));
 
-            // header-20210508@084919@314@149.mp3
-            print(NowFilename.genNowFilename(
+            // header-20210510@181946@119@058.mp3
+            print(NowFilename.gen(
                 prefix: 'header-', ext: '.mp3', seperator: '@'));
 
-            // 20210508084919314149.mp3
+            // 20210510181946119058.mp3
             print(NowFilename.gen(ext: '.mp3', seperator: null));
           },
         ),

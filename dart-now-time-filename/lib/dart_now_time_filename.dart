@@ -22,7 +22,7 @@ class NowFilename {
     return p + y + m + d + sp + h + mi + s + sp + ml + sp + mc + e;
   }
 
-  @Deprecated('Use NowFilename.gen instead. '
+  @Deprecated('Use NowFilename.gen() instead. '
       'This feature was deprecated after v2.0')
   static String genNowFilename(
       {String? prefix: '', String? ext: '', String? seperator: '-'}) {
