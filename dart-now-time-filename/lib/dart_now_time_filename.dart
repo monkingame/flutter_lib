@@ -2,7 +2,8 @@ library dart_now_time_filename;
 
 /// generate now time string for filename.
 class NowFilename {
-  static String genNowFilename(
+  /// generate now file name
+  static String gen(
       {String? prefix: '', String? ext: '', String? seperator: '-'}) {
     final now = DateTime.now();
     final y = now.year.toString().padLeft(4, '0');
@@ -19,5 +20,12 @@ class NowFilename {
     final e = ext ?? '';
     final sp = seperator ?? '';
     return p + y + m + d + sp + h + mi + s + sp + ml + sp + mc + e;
+  }
+
+  @Deprecated('Use NowFilename.gen instead. '
+      'This feature was deprecated after v2.0')
+  static String genNowFilename(
+      {String? prefix: '', String? ext: '', String? seperator: '-'}) {
+    return gen(prefix: prefix, ext: ext, seperator: seperator);
   }
 }
