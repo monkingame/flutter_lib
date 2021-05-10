@@ -1,3 +1,5 @@
-## [0.0.1] - TODO: Add release date.
+## [1.0.0] - example
+* example using lib
 
-* TODO: Describe initial release.
+## [0.1.0] - init
+* init lib
