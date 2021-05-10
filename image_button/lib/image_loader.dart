@@ -4,15 +4,21 @@ import 'package:flutter/services.dart';
 import 'package:image/image.dart' as libImage;
 import 'package:path/path.dart' as p;
 
+/// load asset image
 class ImageLoader {
   ImageLoader._(this.assetPath);
 
+  /// asset path
   final String assetPath;
 
   static var _cache = <String, libImage.Image?>{};
 
+  /// load image by asset path
   static Future<Image?> load({
+    /// asset path
     required String assetPath,
+
+    /// crop image area
     Rect? cropRect,
   }) async {
     if (!_cache.containsKey(assetPath)) {
@@ -65,4 +71,10 @@ class ImageLoader {
   }
 }
 
-enum ImageType { jpg, png, bmp, tiff }
+/// cimpatible image type
+enum ImageType {
+  jpg,
+  png,
+  bmp,
+  // tiff,
+}

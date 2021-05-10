@@ -4,10 +4,18 @@ import 'image_loader.dart';
 
 typedef void OnSizeChanged(Size size);
 
+/// widget asset image
 class WidgetAssetImage extends StatefulWidget {
+  /// asset path
   final String assetPath;
+
+  /// crop image from asset image
   final Rect? cropRect;
+
+  /// image size changed event
   final OnSizeChanged? onSizeChanged;
+
+  /// scale to device ratio
   final bool scaleDeviceRatio;
 
   const WidgetAssetImage({

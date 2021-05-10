@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 
 import 'asset_image.dart';
 
+/// image button
+/// need normal image(necessary) and hover image(not necessary)
 class WidgetImageButton extends StatefulWidget {
   const WidgetImageButton({
     Key? key,
@@ -14,9 +16,16 @@ class WidgetImageButton extends StatefulWidget {
     this.animate = true,
   }) : super(key: key);
 
+  /// image normal
   final WidgetAssetImage imageNormal;
+
+  /// image when mouse hover on the button
   final WidgetAssetImage? imageHover;
+
+  /// tapped event
   final GestureTapCallback? onTap;
+
+  /// if animate when tapped
   final bool animate;
 
   @override
