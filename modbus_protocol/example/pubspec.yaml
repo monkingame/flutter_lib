@@ -29,6 +29,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
+  byte_util: ^1.1.2
+  modbus_protocol:
+    path: ../
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
