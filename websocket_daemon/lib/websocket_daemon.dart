@@ -4,20 +4,24 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/io.dart';
 
+/// web socket daemon model
 class ModelDaemonWebSocket extends ChangeNotifier {
-  IOWebSocketChannel _channel;
-  Stream _stream;
-  StreamSubscription _subScription;
+  IOWebSocketChannel? _channel;
+  Stream? _stream;
+  StreamSubscription? _subScription;
 
   /// reconnect interval: milliseconds
   final int reconectMilliseconds;
 
+  /// server url
   final String urlServer;
 
+  /// data receiverd
   dynamic _data;
 
+  /// constrcutor
   ModelDaemonWebSocket({
-    @required this.urlServer,
+    required this.urlServer,
     this.reconectMilliseconds = 1000,
   });
 
@@ -29,9 +33,9 @@ class ModelDaemonWebSocket extends ChangeNotifier {
   }
 
   _listenWebSocket() {
-    _stream = _channel.stream.asBroadcastStream();
+    _stream = _channel?.stream.asBroadcastStream();
 
-    _subScription = _stream.listen(
+    _subScription = _stream?.listen(
       _onData,
       onDone: () {
         _closeConnect();
@@ -58,23 +62,26 @@ class ModelDaemonWebSocket extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// data received
   dynamic get data => _data;
 
+  /// drop data if needed
   void dropData() {
     _data = null;
     notifyListeners();
   }
 
+  /// if server is avaliable
   bool get serverAvaliable => (_stream != null);
 
   void _closeConnect() {
     if (_channel != null) {
-      _channel.sink.close();
+      _channel?.sink.close();
       _channel = null;
     }
 
     if (_subScription != null) {
-      _subScription.cancel();
+      _subScription?.cancel();
       _subScription = null;
     }
 
@@ -95,14 +102,16 @@ class ModelDaemonWebSocket extends ChangeNotifier {
     );
   }
 
+  /// send message to server
   void sendMessage(message) {
     if (_channel != null) {
-      _channel.sink.add(message);
+      _channel?.sink.add(message);
     }
   }
 
+  /// close connection
   void close() {
-    if (_channel != null) _channel.sink.close();
+    if (_channel != null) _channel?.sink.close();
 
     super.dispose();
   }
