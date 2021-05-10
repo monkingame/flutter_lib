@@ -1,15 +1,12 @@
-// // use: byte_util: ^1.1.0
-// import 'package:byte_util/byte_util.dart';
-// import 'package:modbus_protocol/modbus_protocol.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+import 'package:modbus_protocol/modbus_protocol.dart';
 
 void main() {
-  // testModbusProtocol();
+  test('adds one to input values', () {
+    final calculator = Calculator();
+    expect(calculator.addOne(2), 3);
+    expect(calculator.addOne(-7), -6);
+    expect(calculator.addOne(0), 1);
+  });
 }
-
-// void testModbusProtocol() {
-//   final bytes = [1, 2, 3, 4, 5, 6, 7, 0xff, 0xa1, 0xdd];
-//   final modbus = ModbusProtocol(bytes);
-//   final crc = modbus.crc;
-//   // 0xAF 0x3D
-//   print(ByteUtil.toReadable(crc.word));
-// }
