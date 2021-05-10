@@ -50,8 +50,6 @@ class _WidgetImageButtonState extends State<WidgetImageButton>
     // ..repeat(reverse: true);
   }
 
-  // _onImageSizeChanged(Size size) {}
-
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
