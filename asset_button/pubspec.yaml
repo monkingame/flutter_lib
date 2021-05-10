@@ -1,7 +1,7 @@
 name: asset_button
 description: image button library,include imagebutton & image loader & asset image,etc
-version: 1.0.0
-homepage: https://github.com/monkingame/flutter_lib/tree/main/image_button
+version: 1.0.1
+homepage: https://github.com/monkingame/flutter_lib/tree/main/asset_button
 
 
 environment:
