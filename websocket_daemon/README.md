@@ -2,4 +2,6 @@
 
 websocket deamon.
 
-listening to websocket server.
+listen to websocket server as notifier provider.
+
+reconnect when lost to server.
