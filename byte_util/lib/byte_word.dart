@@ -24,9 +24,9 @@ class ByteWord {
   Byte get high => _high;
   Byte get low => _low;
 
-  ByteWord({required high, required low}) {
-    _high = Byte(high);
-    _low = Byte(low);
+  ByteWord({required Byte high, required Byte low}) {
+    _high = high;
+    _low = low;
   }
 
   ByteWord.fromInt(int value) {
@@ -35,4 +35,9 @@ class ByteWord {
   }
 
   Uint8List get bytes => Uint8List.fromList([_high.value, _low.value]);
+
+  @override
+  String toString() {
+    return _high.toString() + ',' + _low.toString();
+  }
 }

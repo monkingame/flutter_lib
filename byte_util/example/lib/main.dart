@@ -1,6 +1,8 @@
 import 'dart:typed_data';
+import 'package:byte_util/byte.dart';
 import 'package:byte_util/byte_array.dart';
 import 'package:byte_util/byte_util.dart';
+import 'package:byte_util/byte_word.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -65,6 +67,8 @@ class WidgetExample extends StatelessWidget {
               ElevatedButton(
                   onPressed: testByteArrayContructor,
                   child: Text('ByteArrayContructor')),
+              ElevatedButton(
+                  onPressed: testByteClass, child: Text('ByteClass')),
             ],
           ),
         ),
@@ -186,5 +190,14 @@ class WidgetExample extends StatelessWidget {
 
     arr5.remove(3, 9);
     print(arr5.bytes);
+  }
+
+  void testByteClass() {
+    final byte1 = Byte(123);
+    final byte2 = Byte(0xA1);
+    print(byte1);
+
+    final word = ByteWord(high: byte1, low: byte2);
+    print(word);
   }
 }
