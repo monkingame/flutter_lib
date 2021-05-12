@@ -31,7 +31,6 @@ class ByteArray {
     _bytes = ByteUtil.combine(_toArray(value), array);
   }
 
-  // TODO: 插入数据，在指定的位置
   Uint8List append(int value) {
     // if (_bytes == null) {
     //   _bytes = _toArray(value);
