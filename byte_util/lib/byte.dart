@@ -9,6 +9,6 @@ class Byte {
 
   @override
   String toString() {
-    return (_byte.toRadixString(16).padLeft(2, '0').toUpperCase());
+    return '0x' + (_byte.toRadixString(16).padLeft(2, '0').toUpperCase());
   }
 }
