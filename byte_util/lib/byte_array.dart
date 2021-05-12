@@ -40,7 +40,8 @@ class ByteArray {
     // }
     // return _bytes;
     // return _combine(_bytes, _toArray(value));
-    return ByteUtil.combine(_bytes, _toArray(value));
+    _bytes = ByteUtil.combine(_bytes, _toArray(value));
+    return _bytes;
   }
 
   Uint8List appendArray(Uint8List array) {
@@ -52,7 +53,8 @@ class ByteArray {
     // return _bytes;
 
     // return _combine(_bytes, array);
-    return ByteUtil.combine(_bytes, array);
+    _bytes = ByteUtil.combine(_bytes, array);
+    return _bytes;
   }
 
   Uint8List _toArray(int value) {

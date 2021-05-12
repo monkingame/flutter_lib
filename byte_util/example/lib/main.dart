@@ -38,29 +38,33 @@ class WidgetExample extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       // crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ElevatedButton(
-                onPressed: testFromReadable, child: Text('FromReadable')),
-            ElevatedButton(
-                onPressed: testToReadable, child: Text('ToReadable')),
-            ElevatedButton(onPressed: testToBase64, child: Text('ToBase64')),
-            ElevatedButton(
-                onPressed: testFromBase64, child: Text('FromBase64')),
-            ElevatedButton(onPressed: testClone, child: Text('Clone')),
-            ElevatedButton(onPressed: testSame, child: Text('Same')),
-            ElevatedButton(onPressed: testExtract, child: Text('Extract')),
-          ],
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                  onPressed: testFromReadable, child: Text('FromReadable')),
+              ElevatedButton(
+                  onPressed: testToReadable, child: Text('ToReadable')),
+              ElevatedButton(onPressed: testToBase64, child: Text('ToBase64')),
+              ElevatedButton(
+                  onPressed: testFromBase64, child: Text('FromBase64')),
+              ElevatedButton(onPressed: testClone, child: Text('Clone')),
+              ElevatedButton(onPressed: testSame, child: Text('Same')),
+              ElevatedButton(onPressed: testExtract, child: Text('Extract')),
+            ],
+          ),
         ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ElevatedButton(onPressed: testExtract, child: Text('Extract')),
-            ElevatedButton(onPressed: testExtract, child: Text('Extract')),
-          ],
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ElevatedButton(onPressed: testExtract, child: Text('Extract')),
+              ElevatedButton(onPressed: testExtract, child: Text('Extract')),
+            ],
+          ),
         ),
       ],
     );
