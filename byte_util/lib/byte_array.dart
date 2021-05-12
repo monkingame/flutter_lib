@@ -58,21 +58,28 @@ class ByteArray {
   }
 
   Uint8List insert(int index, int value) {
-    if (index < 0) return _bytes;
-    // final actualIndex=index
-    if (_bytes.length == 0) {
-      _bytes = Uint8List.fromList([value]);
-      return _bytes;
-    }
+    // if (index < 0) return _bytes;
+    // // final actualIndex=index
+    // if (_bytes.length == 0) {
+    //   _bytes = Uint8List.fromList([value]);
+    //   return _bytes;
+    // }
 
-    final actIndex = index > _bytes.length ? _bytes.length : index;
+    // final actIndex = index > _bytes.length ? _bytes.length : index;
 
-    // _bytes.insert(index, value);
+    // // _bytes.insert(index, value);
+    // // return _bytes;
+
+    // var list = List<int>.from(_bytes);
+    // list.insert(actIndex, value);
+    // _bytes = Uint8List.fromList(list);
     // return _bytes;
+    _bytes = ByteUtil.insert(_bytes, index, Uint8List.fromList([value]));
+    return _bytes;
+  }
 
-    var list = List<int>.from(_bytes);
-    list.insert(actIndex, value);
-    _bytes = Uint8List.fromList(list);
+  Uint8List insertArray(int index, Uint8List array) {
+    _bytes = ByteUtil.insert(_bytes, index, array);
     return _bytes;
   }
 

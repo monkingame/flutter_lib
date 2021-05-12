@@ -128,4 +128,18 @@ abstract class ByteUtil {
 
     return Uint8List.fromList(list);
   }
+
+  static Uint8List insert(Uint8List origin, int index, Uint8List sub) {
+    if (index < 0 || sub.length <= 0) return origin;
+
+    if (origin.length == 0) {
+      return Uint8List.fromList(sub);
+    }
+
+    final actIndex = index > origin.length ? origin.length : index;
+
+    var list = List<int>.from(origin);
+    list.insertAll(actIndex, sub);
+    return Uint8List.fromList(list);
+  }
 }
