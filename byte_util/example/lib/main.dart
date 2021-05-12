@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:byte_util/byte.dart';
 import 'package:byte_util/byte_array.dart';
+import 'package:byte_util/byte_double_word.dart';
 import 'package:byte_util/byte_util.dart';
 import 'package:byte_util/byte_word.dart';
 import 'package:flutter/material.dart';
@@ -195,9 +196,15 @@ class WidgetExample extends StatelessWidget {
   void testByteClass() {
     final byte1 = Byte(123);
     final byte2 = Byte(0xA1);
+    final byte3 = Byte(12);
+    final byte4 = Byte(65);
     print(byte1);
 
-    final word = ByteWord(high: byte1, low: byte2);
+    final word = ByteWord(high: byte2, low: byte1);
     print(word);
+
+    final doubleWord =
+        ByteDoubleWord(one: byte1, two: byte2, three: byte3, four: byte4);
+    print(doubleWord);
   }
 }

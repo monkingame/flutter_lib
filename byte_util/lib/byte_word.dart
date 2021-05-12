@@ -34,7 +34,9 @@ class ByteWord {
     _low = Byte(value);
   }
 
-  Uint8List get bytes => Uint8List.fromList([_high.value, _low.value]);
+  /// low at first, high at second.
+  /// little-endian
+  Uint8List get bytes => Uint8List.fromList([_low.value, _high.value]);
 
   @override
   String toString() {
