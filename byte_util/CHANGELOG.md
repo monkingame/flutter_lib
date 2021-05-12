@@ -1,3 +1,5 @@
+## [2.0.2] - example
+* example
 ## [2.0.1] - docs
 * readme
 ## [2.0.0] - migrate

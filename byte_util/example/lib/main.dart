@@ -155,40 +155,52 @@ class WidgetExample extends StatelessWidget {
   }
 
   void testByteArrayContructor() {
+    // [1, 2, 3]
     final arr1 = ByteArray(Uint8List.fromList([1, 2, 3]));
     print(arr1.bytes);
 
+    // [3]
     final arr2 = ByteArray.fromByte(3);
     print(arr2.bytes);
 
+    // [1, 2, 3, 4, 5, 6]
     final arr3 = ByteArray.combineArrays(
         Uint8List.fromList([1, 2, 3]), Uint8List.fromList([4, 5, 6]));
     print(arr3.bytes);
 
+    // [1, 2, 3, 7]
     final arr4 = ByteArray.combine1(Uint8List.fromList([1, 2, 3]), 7);
     print(arr4.bytes);
 
+    // [8, 1, 2, 3]
     final arr5 = ByteArray.combine2(8, Uint8List.fromList([1, 2, 3]));
     print(arr5.bytes);
 
+    // [8, 1, 2, 3, 10]
     arr5.append(10);
     print(arr5.bytes);
 
+    // [8, 1, 2, 3, 10, 9, 9]
     arr5.appendArray(Uint8List.fromList([9, 9]));
     print(arr5.bytes);
 
+    // [8, 12, 1, 2, 3, 10, 9, 9]
     arr5.insert(1, 12);
     print(arr5.bytes);
 
+    // [8, 12, 1, 2, 3, 10, 9, 9, 13]
     arr5.insert(100, 13);
     print(arr5.bytes);
 
+    // [8, 12, 1, 23, 23, 2, 3, 10, 9, 9, 13]
     arr5.insertArray(3, Uint8List.fromList([23, 23]));
     print(arr5.bytes);
 
+    // [12, 1, 23, 23, 2, 3, 10, 9, 9, 13]
     arr5.remove(0, 1);
     print(arr5.bytes);
 
+    // [12, 1, 23]
     arr5.remove(3, 9);
     print(arr5.bytes);
   }
@@ -198,13 +210,17 @@ class WidgetExample extends StatelessWidget {
     final byte2 = Byte(0xA1);
     final byte3 = Byte(12);
     final byte4 = Byte(65);
+
+    // 03
     print(byte1);
 
     final word = ByteWord(high: byte2, low: byte1);
+    // A1,03
     print(word);
 
     final doubleWord =
         ByteDoubleWord(one: byte1, two: byte2, three: byte3, four: byte4);
+    // 41,0C,A1,03
     print(doubleWord);
   }
 }
