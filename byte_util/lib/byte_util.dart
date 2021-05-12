@@ -17,8 +17,8 @@ abstract class ByteUtil {
   /// byte splitted by space or comma,
   /// e.g. '0xaa ff 01 02 ,03 ,00 A0'
   /// default radix is hex,or specified radix
-  static Uint8List? fromReadable(String readable, {Radix radix = Radix.hex}) {
-    // if (readable == null || readable.isEmpty) return null;
+  static Uint8List? fromReadable(String? readable, {Radix radix = Radix.hex}) {
+    if (readable == null || readable.isEmpty) return null;
 
     final List<int> list = [];
     final split = RegExp(' +');
@@ -43,8 +43,8 @@ abstract class ByteUtil {
 
   /// convert byytes array to readable string.
   /// default radix is hex ,or specified radix
-  static String toReadable(Uint8List buffer, {Radix radix = Radix.hex}) {
-    // if (buffer == null || buffer.length <= 0) return null;
+  static String toReadable(Uint8List? buffer, {Radix radix = Radix.hex}) {
+    if (buffer == null || buffer.length <= 0) return '';
 
     final List<String> list = [];
     for (int data in buffer) {
@@ -97,12 +97,12 @@ abstract class ByteUtil {
     return true;
   }
 
-  static Uint8List extract(Uint8List input, int index, int length) {
+  static Uint8List? extract(Uint8List input, int index, int length) {
     // if (input == null || input.length <= 0 || length <= 0 || index < 0) {
     //   return null;
     // }
 
-    // if (index >= input.length) return null;
+    if (index >= input.length) return null;
 
     int end = index + length;
     if (end >= input.length) {
