@@ -8,19 +8,19 @@ import 'modbus_crc.dart';
 /// modbus protocol
 class ModbusProtocol {
   /// origin input bytes array
-  final List<int> input;
+  final Uint8List input;
 
-  var _crc = ByteWord(0);
+  var _crc = ByteWord.fromInt(0);
 
   /// modbus CRC data
   ByteWord get crc => _crc;
 
   /// input bytes array
   ModbusProtocol(this.input) {
-    final bytes = Uint8List.fromList(input);
+    final bytes = input;
     // print(bytes.length);
 
     int crc = ModbusCRC.caculateCRC(bytes);
-    _crc = ByteWord(crc);
+    _crc = ByteWord.fromInt(crc);
   }
 }

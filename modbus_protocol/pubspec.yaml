@@ -1,6 +1,6 @@
 name: modbus_protocol
 description: Modbus is a data communications protocol originally published in 1979 for use with PLCs. 
-version: 1.1.1
+version: 2.0.0
 homepage: https://github.com/monkingame/flutter_lib/tree/main/modbus_protocol
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  byte_util: ^1.1.2
+  byte_util: ^2.0.3
 
 dev_dependencies:
   flutter_test:
