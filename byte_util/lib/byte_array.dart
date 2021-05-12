@@ -83,6 +83,11 @@ class ByteArray {
     return _bytes;
   }
 
+  Uint8List remove(int index, int length) {
+    _bytes = ByteUtil.remove(_bytes, index, length);
+    return _bytes;
+  }
+
   Uint8List _toArray(int value) {
     return Uint8List.fromList([value]);
   }

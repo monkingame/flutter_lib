@@ -180,5 +180,11 @@ class WidgetExample extends StatelessWidget {
 
     arr5.insertArray(3, Uint8List.fromList([23, 23]));
     print(arr5.bytes);
+
+    arr5.remove(0, 1);
+    print(arr5.bytes);
+
+    arr5.remove(3, 9);
+    print(arr5.bytes);
   }
 }

@@ -140,4 +140,16 @@ abstract class ByteUtil {
     list.insertAll(actIndex, sub);
     return Uint8List.fromList(list);
   }
+
+  static Uint8List remove(Uint8List origin, int index, int length) {
+    if (index < 0 || length <= 0) return origin;
+    if (origin.length == 0) return origin;
+    if (index >= origin.length) return origin;
+
+    final actEnd =
+        (index + length > origin.length) ? origin.length : (index + length);
+    var list = List<int>.from(origin);
+    list.removeRange(index, actEnd);
+    return Uint8List.fromList(list);
+  }
 }
