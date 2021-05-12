@@ -1,3 +1,5 @@
+## [2.0.3] - toString
+* toString
 ## [2.0.2] - example
 * example
 ## [2.0.1] - docs
