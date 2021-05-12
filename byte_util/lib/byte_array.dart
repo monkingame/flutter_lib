@@ -2,11 +2,17 @@ import 'dart:typed_data';
 
 import 'package:byte_util/byte_util.dart';
 
+import 'byte.dart';
+
 /// byte array
 class ByteArray {
   Uint8List _bytes = Uint8List(0);
 
+  /// bytes in UInt8List
   Uint8List get bytes => _bytes;
+
+  /// bytes in List<Byte>
+  List<Byte> get array => _bytes.map((byte) => Byte(byte)).toList();
 
   ByteArray(Uint8List array) {
     _bytes = Uint8List.fromList(array);

@@ -6,4 +6,9 @@ class Byte {
   Byte(int value) {
     _byte = value & 0xFF;
   }
+
+  @override
+  String toString() {
+    return ('0x' + _byte.toRadixString(16).toUpperCase());
+  }
 }
