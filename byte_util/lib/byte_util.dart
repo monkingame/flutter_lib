@@ -114,19 +114,17 @@ abstract class ByteUtil {
   }
 
   static Uint8List combine(Uint8List array1, Uint8List array2) {
-    // if (array1 == null) return array2;
-    // if (array2 == null) return array1;
+    // var list = Uint8List(array1.length + array2.length);
 
-    var list = Uint8List(array1.length + array2.length);
+    // for (int i = 0; i < array1.length; i++) {
+    //   list[i] = array1[i];
+    // }
+    // for (int i = 0; i < array2.length; i++) {
+    //   list[array1.length + i] = array2[i];
+    // }
 
-    for (int i = 0; i < array1.length; i++) {
-      list[i] = array1[i];
-    }
-    for (int i = 0; i < array2.length; i++) {
-      list[array1.length + i] = array2[i];
-    }
-
-    return Uint8List.fromList(list);
+    // return Uint8List.fromList(list);
+    return insert(array1, array1.length, array2);
   }
 
   static Uint8List insert(Uint8List origin, int index, Uint8List sub) {
