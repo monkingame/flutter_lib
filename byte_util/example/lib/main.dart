@@ -194,7 +194,7 @@ class WidgetExample extends StatelessWidget {
   }
 
   void testByteClass() {
-    final byte1 = Byte(123);
+    final byte1 = Byte(3);
     final byte2 = Byte(0xA1);
     final byte3 = Byte(12);
     final byte4 = Byte(65);

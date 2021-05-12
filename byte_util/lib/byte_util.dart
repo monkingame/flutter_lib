@@ -48,7 +48,8 @@ abstract class ByteUtil {
 
     final List<String> list = [];
     for (int data in buffer) {
-      var str = data.toRadixString(radix == Radix.hex ? 16 : 10);
+      var str =
+          data.toRadixString(radix == Radix.hex ? 16 : 10).padLeft(2, '0');
       if (radix == Radix.hex) str = ('0x' + str.toUpperCase());
       list.add(str);
     }
