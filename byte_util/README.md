@@ -23,11 +23,13 @@ byte array class
 * append bytes to tail
   
 ------
-byte word
+Byte: stands for byte
 
-stands for DWORD
+ByteWord: stands for DWORD,composed of high byte and low byte
 
-composed of high byte and low byte
+ByteDoubleWord: stands for double word(four bytes)
+
+little-endian
 
 ------
 example
