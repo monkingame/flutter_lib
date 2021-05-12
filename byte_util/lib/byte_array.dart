@@ -57,6 +57,25 @@ class ByteArray {
     return _bytes;
   }
 
+  Uint8List insert(int index, int value) {
+    if (index < 0) return _bytes;
+    // final actualIndex=index
+    if (_bytes.length == 0) {
+      _bytes = Uint8List.fromList([value]);
+      return _bytes;
+    }
+
+    final actIndex = index > _bytes.length ? _bytes.length : index;
+
+    // _bytes.insert(index, value);
+    // return _bytes;
+
+    var list = List<int>.from(_bytes);
+    list.insert(actIndex, value);
+    _bytes = Uint8List.fromList(list);
+    return _bytes;
+  }
+
   Uint8List _toArray(int value) {
     return Uint8List.fromList([value]);
   }

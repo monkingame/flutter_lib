@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:byte_util/byte_array.dart';
 import 'package:byte_util/byte_util.dart';
 import 'package:flutter/material.dart';
 
@@ -61,8 +62,9 @@ class WidgetExample extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ElevatedButton(onPressed: testExtract, child: Text('Extract')),
-              ElevatedButton(onPressed: testExtract, child: Text('Extract')),
+              ElevatedButton(
+                  onPressed: testByteArrayContructor,
+                  child: Text('ByteArrayContructor')),
             ],
           ),
         ),
@@ -147,5 +149,33 @@ class WidgetExample extends StatelessWidget {
     print(ByteUtil.toReadable(ByteUtil.extract(bytes, 7, 1)));
   }
 
-  void testByteArray() {}
+  void testByteArrayContructor() {
+    final arr1 = ByteArray(Uint8List.fromList([1, 2, 3]));
+    print(arr1.bytes);
+
+    final arr2 = ByteArray.fromByte(3);
+    print(arr2.bytes);
+
+    final arr3 = ByteArray.combineArrays(
+        Uint8List.fromList([1, 2, 3]), Uint8List.fromList([4, 5, 6]));
+    print(arr3.bytes);
+
+    final arr4 = ByteArray.combine1(Uint8List.fromList([1, 2, 3]), 7);
+    print(arr4.bytes);
+
+    final arr5 = ByteArray.combine2(8, Uint8List.fromList([1, 2, 3]));
+    print(arr5.bytes);
+
+    arr5.append(10);
+    print(arr5.bytes);
+
+    arr5.appendArray(Uint8List.fromList([9, 9]));
+    print(arr5.bytes);
+
+    arr5.insert(1, 12);
+    print(arr5.bytes);
+
+    arr5.insert(9, 13);
+    print(arr5.bytes);
+  }
 }
