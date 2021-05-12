@@ -1,3 +1,6 @@
+## [2.0.0] - migrate
+* some tools moved to ByteUtil
+* Byte class
 ## [1.1.3] - fix example
 * fix example
 ## [1.1.2] - example
