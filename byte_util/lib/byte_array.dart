@@ -1,5 +1,7 @@
 import 'dart:typed_data';
 
+import 'package:byte_util/byte_util.dart';
+
 /// byte array
 class ByteArray {
   Uint8List _bytes = Uint8List(0);
@@ -44,7 +46,9 @@ class ByteArray {
     //   _bytes = _combine(_bytes, array);
     // }
     // return _bytes;
-    return _combine(_bytes, array);
+
+    // return _combine(_bytes, array);
+    return ByteUtil.combine(_bytes, array);
   }
 
   Uint8List _toArray(int value) {
