@@ -1,3 +1,5 @@
+## [1.0.2] - readme
+* update readme
 ## [1.0.1] - homepage
 * homepage
 ## [1.0.0] - example
