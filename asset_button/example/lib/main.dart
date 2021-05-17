@@ -23,10 +23,15 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('image button example')),
-      body: Center(
+      body: Container(
+        color: Colors.blue[900],
+        width: double.infinity,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            // background image
             WidgetAssetImage(assetPath: 'assets/images/bkg_code.png'),
+            // independent icon image
             WidgetImageButton(
               imageNormal:
                   WidgetAssetImage(assetPath: 'assets/images/icon_normal.png'),
@@ -36,13 +41,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 print('independent icon image button');
               },
             ),
+            // icon image crop from one whole image
             WidgetImageButton(
               imageNormal: WidgetAssetImage(
                   assetPath: 'assets/images/icons.png',
-                  cropRect: Rect.fromLTWH(61, 168, 92, 92)),
+                  cropRect: Rect.fromLTWH(58, 165, 95, 95)),
               imageHover: WidgetAssetImage(
                   assetPath: 'assets/images/icons.png',
-                  cropRect: Rect.fromLTWH(173, 167, 92, 92)),
+                  cropRect: Rect.fromLTWH(170, 164, 95, 95)),
               onTap: () {
                 print('image button icon crop from one image');
               },
