@@ -222,5 +222,9 @@ class WidgetExample extends StatelessWidget {
         ByteDoubleWord(one: byte1, two: byte2, three: byte3, four: byte4);
     // 41,0C,A1,03
     print(doubleWord);
+
+    final dw = ByteDoubleWord.fromInt(184384451);
+    // 0x0A,0xFD,0x7B,0xC3
+    print(dw);
   }
 }
