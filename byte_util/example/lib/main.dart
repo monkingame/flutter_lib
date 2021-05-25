@@ -192,23 +192,24 @@ class WidgetExample extends StatelessWidget {
     print(arr5.bytes);
 
     // [8, 12, 1, 2, 3, 10, 9, 9]
-    arr5.insert(1, 12);
+    arr5.insert(indexStart: 1, value: 12);
     print(arr5.bytes);
 
     // [8, 12, 1, 2, 3, 10, 9, 9, 13]
-    arr5.insert(100, 13);
+    arr5.insert(indexStart: 100, value: 13);
     print(arr5.bytes);
 
     // [8, 12, 1, 23, 23, 2, 3, 10, 9, 9, 13]
-    arr5.insertArray(3, Uint8List.fromList([23, 23]));
+    arr5.insertArray(
+        indexStart: 3, arrayToInsert: Uint8List.fromList([23, 23]));
     print(arr5.bytes);
 
     // [12, 1, 23, 23, 2, 3, 10, 9, 9, 13]
-    arr5.remove(0, 1);
+    arr5.remove(indexStart: 0, lengthRemove: 1);
     print(arr5.bytes);
 
     // [12, 1, 23]
-    arr5.remove(3, 9);
+    arr5.remove(indexStart: 3, lengthRemove: 9);
     print(arr5.bytes);
   }
 

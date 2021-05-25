@@ -44,27 +44,29 @@ class ByteArray {
     return _bytes;
   }
 
-  Uint8List insert(int index, int value) {
+  Uint8List insert({required int indexStart, required int value}) {
     _bytes = ByteUtil.insert(
         origin: _bytes,
-        indexStart: index,
+        indexStart: indexStart,
         subToInsert: Uint8List.fromList([value]));
     return _bytes;
   }
 
-  Uint8List insertArray(int index, Uint8List array) {
-    _bytes =
-        ByteUtil.insert(origin: _bytes, indexStart: index, subToInsert: array);
+  Uint8List insertArray(
+      {required int indexStart, required Uint8List arrayToInsert}) {
+    _bytes = ByteUtil.insert(
+        origin: _bytes, indexStart: indexStart, subToInsert: arrayToInsert);
     return _bytes;
   }
 
-  Uint8List remove(int index, int length) {
+  Uint8List remove({required int indexStart, required int lengthRemove}) {
     _bytes = ByteUtil.remove(
-        origin: _bytes, indexStart: index, lengthRemove: length);
+        origin: _bytes, indexStart: indexStart, lengthRemove: lengthRemove);
     return _bytes;
   }
 
-  Uint8List _toArray(int value) {
-    return Uint8List.fromList([value]);
-  }
+  // Uint8List _toArray(int value) {
+  //   return Uint8List.fromList([value]);
+  // }
+  Uint8List _toArray(int value) => Uint8List.fromList([value]);
 }
