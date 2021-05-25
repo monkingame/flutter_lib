@@ -99,9 +99,12 @@ abstract class ByteUtil {
     return sub;
   }
 
-  static Uint8List combine(Uint8List array1, Uint8List array2) {
+  static Uint8List combine(
+      {required Uint8List arrayFirst, required Uint8List arraySecond}) {
     return insert(
-        origin: array1, indexStart: array1.length, subToInsert: array2);
+        origin: arrayFirst,
+        indexStart: arrayFirst.length,
+        subToInsert: arraySecond);
   }
 
   static Uint8List insert(

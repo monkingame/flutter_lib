@@ -23,24 +23,24 @@ class ByteArray {
   }
 
   ByteArray.combineArrays(Uint8List array1, Uint8List array2) {
-    _bytes = ByteUtil.combine(array1, array2);
+    _bytes = ByteUtil.combine(arrayFirst: array1, arraySecond: array2);
   }
 
   ByteArray.combine1(Uint8List array, int value) {
-    _bytes = ByteUtil.combine(array, _toArray(value));
+    _bytes = ByteUtil.combine(arrayFirst: array, arraySecond: _toArray(value));
   }
 
   ByteArray.combine2(int value, Uint8List array) {
-    _bytes = ByteUtil.combine(_toArray(value), array);
+    _bytes = ByteUtil.combine(arrayFirst: _toArray(value), arraySecond: array);
   }
 
   Uint8List append(int value) {
-    _bytes = ByteUtil.combine(_bytes, _toArray(value));
+    _bytes = ByteUtil.combine(arrayFirst: _bytes, arraySecond: _toArray(value));
     return _bytes;
   }
 
   Uint8List appendArray(Uint8List array) {
-    _bytes = ByteUtil.combine(_bytes, array);
+    _bytes = ByteUtil.combine(arrayFirst: _bytes, arraySecond: array);
     return _bytes;
   }
 
