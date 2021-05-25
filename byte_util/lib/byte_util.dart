@@ -84,8 +84,10 @@ abstract class ByteUtil {
     return true;
   }
 
-  static Uint8List? extract(Uint8List input,
-      {required int indexStart, required int length}) {
+  static Uint8List? extract(
+      {required Uint8List input,
+      required int indexStart,
+      required int length}) {
     if (indexStart >= input.length) return null;
 
     int end = indexStart + length;
