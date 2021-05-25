@@ -134,31 +134,31 @@ class WidgetExample extends StatelessWidget {
 
     // 0x1 0x2 0xFF
     print(ByteUtil.toReadable(
-        ByteUtil.extract(input: bytes, indexStart: 1, length: 3)));
+        ByteUtil.extract(origin: bytes, indexStart: 1, length: 3)));
 
     // null
     print(ByteUtil.toReadable(
-        ByteUtil.extract(input: bytes, indexStart: 0, length: 0)));
+        ByteUtil.extract(origin: bytes, indexStart: 0, length: 0)));
 
     // 0x80 0x1 0x2 0xFF 0xA1 0x1E 0xA 0x20
     print(ByteUtil.toReadable(
-        ByteUtil.extract(input: bytes, indexStart: 0, length: 100)));
+        ByteUtil.extract(origin: bytes, indexStart: 0, length: 100)));
 
     // null
     print(ByteUtil.toReadable(
-        ByteUtil.extract(input: bytes, indexStart: 10, length: 8)));
+        ByteUtil.extract(origin: bytes, indexStart: 10, length: 8)));
 
     // 0x80 0x1 0x2 0xFF 0xA1 0x1E 0xA 0x20
     print(ByteUtil.toReadable(
-        ByteUtil.extract(input: bytes, indexStart: 0, length: 8)));
+        ByteUtil.extract(origin: bytes, indexStart: 0, length: 8)));
 
     // null
     print(ByteUtil.toReadable(
-        ByteUtil.extract(input: bytes, indexStart: 8, length: 1)));
+        ByteUtil.extract(origin: bytes, indexStart: 8, length: 1)));
 
     // 0x20
     print(ByteUtil.toReadable(
-        ByteUtil.extract(input: bytes, indexStart: 7, length: 1)));
+        ByteUtil.extract(origin: bytes, indexStart: 7, length: 1)));
   }
 
   void testByteArrayContructor() {
