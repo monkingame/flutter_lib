@@ -48,14 +48,14 @@ class ByteArray {
     _bytes = ByteUtil.insert(
         origin: _bytes,
         indexStart: indexStart,
-        subToInsert: Uint8List.fromList([value]));
+        arrayInsert: Uint8List.fromList([value]));
     return _bytes;
   }
 
   Uint8List insertArray(
-      {required int indexStart, required Uint8List arrayToInsert}) {
+      {required int indexStart, required Uint8List arrayInsert}) {
     _bytes = ByteUtil.insert(
-        origin: _bytes, indexStart: indexStart, subToInsert: arrayToInsert);
+        origin: _bytes, indexStart: indexStart, arrayInsert: arrayInsert);
     return _bytes;
   }
 

@@ -104,23 +104,23 @@ abstract class ByteUtil {
     return insert(
         origin: arrayFirst,
         indexStart: arrayFirst.length,
-        subToInsert: arraySecond);
+        arrayInsert: arraySecond);
   }
 
   static Uint8List insert(
       {required Uint8List origin,
       required int indexStart,
-      required Uint8List subToInsert}) {
-    if (indexStart < 0 || subToInsert.length <= 0) return origin;
+      required Uint8List arrayInsert}) {
+    if (indexStart < 0 || arrayInsert.length <= 0) return origin;
 
     if (origin.length == 0) {
-      return Uint8List.fromList(subToInsert);
+      return Uint8List.fromList(arrayInsert);
     }
 
     final actIndex = indexStart > origin.length ? origin.length : indexStart;
 
     var list = List<int>.from(origin);
-    list.insertAll(actIndex, subToInsert);
+    list.insertAll(actIndex, arrayInsert);
     return Uint8List.fromList(list);
   }
 
