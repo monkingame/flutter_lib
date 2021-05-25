@@ -84,45 +84,54 @@ abstract class ByteUtil {
     return true;
   }
 
-  static Uint8List? extract(Uint8List input, int index, int length) {
-    if (index >= input.length) return null;
+  static Uint8List? extract(Uint8List input,
+      {required int indexStart, required int length}) {
+    if (indexStart >= input.length) return null;
 
-    int end = index + length;
+    int end = indexStart + length;
     if (end >= input.length) {
       end = input.length;
     }
 
-    final sub = input.sublist(index, end);
+    final sub = input.sublist(indexStart, end);
     return sub;
   }
 
   static Uint8List combine(Uint8List array1, Uint8List array2) {
-    return insert(array1, array1.length, array2);
+    return insert(
+        origin: array1, indexStart: array1.length, subToInsert: array2);
   }
 
-  static Uint8List insert(Uint8List origin, int index, Uint8List sub) {
-    if (index < 0 || sub.length <= 0) return origin;
+  static Uint8List insert(
+      {required Uint8List origin,
+      required int indexStart,
+      required Uint8List subToInsert}) {
+    if (indexStart < 0 || subToInsert.length <= 0) return origin;
 
     if (origin.length == 0) {
-      return Uint8List.fromList(sub);
+      return Uint8List.fromList(subToInsert);
     }
 
-    final actIndex = index > origin.length ? origin.length : index;
+    final actIndex = indexStart > origin.length ? origin.length : indexStart;
 
     var list = List<int>.from(origin);
-    list.insertAll(actIndex, sub);
+    list.insertAll(actIndex, subToInsert);
     return Uint8List.fromList(list);
   }
 
-  static Uint8List remove(Uint8List origin, int index, int length) {
-    if (index < 0 || length <= 0) return origin;
+  static Uint8List remove(
+      {required Uint8List origin,
+      required int indexStart,
+      required int lengthRemove}) {
+    if (indexStart < 0 || lengthRemove <= 0) return origin;
     if (origin.length == 0) return origin;
-    if (index >= origin.length) return origin;
+    if (indexStart >= origin.length) return origin;
 
-    final actEnd =
-        (index + length > origin.length) ? origin.length : (index + length);
+    final actEnd = (indexStart + lengthRemove > origin.length)
+        ? origin.length
+        : (indexStart + lengthRemove);
     var list = List<int>.from(origin);
-    list.removeRange(index, actEnd);
+    list.removeRange(indexStart, actEnd);
     return Uint8List.fromList(list);
   }
 }

@@ -45,17 +45,22 @@ class ByteArray {
   }
 
   Uint8List insert(int index, int value) {
-    _bytes = ByteUtil.insert(_bytes, index, Uint8List.fromList([value]));
+    _bytes = ByteUtil.insert(
+        origin: _bytes,
+        indexStart: index,
+        subToInsert: Uint8List.fromList([value]));
     return _bytes;
   }
 
   Uint8List insertArray(int index, Uint8List array) {
-    _bytes = ByteUtil.insert(_bytes, index, array);
+    _bytes =
+        ByteUtil.insert(origin: _bytes, indexStart: index, subToInsert: array);
     return _bytes;
   }
 
   Uint8List remove(int index, int length) {
-    _bytes = ByteUtil.remove(_bytes, index, length);
+    _bytes = ByteUtil.remove(
+        origin: _bytes, indexStart: index, lengthRemove: length);
     return _bytes;
   }
 
