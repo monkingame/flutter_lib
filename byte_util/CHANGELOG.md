@@ -1,3 +1,5 @@
+## [3.0.0] - refactor
+* refactor
 ## [2.0.3] - toString
 * toString
 ## [2.0.2] - example
