@@ -59,36 +59,22 @@ abstract class ByteUtil {
 
   /// convert bytes array to base64 string
   static String toBase64(Uint8List buffer) {
-    // if (buffer == null || buffer.length <= 0) return null;
-
     final str = base64Encode(buffer);
     return str;
   }
 
   /// convert base64 string to bytes array
   static Uint8List fromBase64(String base64) {
-    // if (base64 == null || base64.length <= 0) return null;
-
     final data = base64Decode(base64);
     return data;
   }
 
   /// clone bytes array
   static Uint8List clone(Uint8List origin) {
-    // if (origin == null) return null;
-
     return Uint8List.fromList(origin);
   }
 
   static bool same(Uint8List bytes1, Uint8List bytes2) {
-    // if (bytesFirst == null && bytesSecond == null) return true;
-    // if (bytesFirst == null && bytesSecond != null) return false;
-    // if (bytesFirst != null && bytesSecond == null) return false;
-    // if (bytesFirst!.length != bytesSecond!.length) return false;
-    // if (bytesFirst.length == 0 && bytesSecond.length == 0) return true;
-
-    // if (bytes1 == null) return bytes2 == null;
-    // if (bytes2 == null) return false;
     if (bytes1.length != bytes2.length) return false;
 
     for (int i = 0; i < bytes1.length; i++) {
@@ -99,10 +85,6 @@ abstract class ByteUtil {
   }
 
   static Uint8List? extract(Uint8List input, int index, int length) {
-    // if (input == null || input.length <= 0 || length <= 0 || index < 0) {
-    //   return null;
-    // }
-
     if (index >= input.length) return null;
 
     int end = index + length;
@@ -115,16 +97,6 @@ abstract class ByteUtil {
   }
 
   static Uint8List combine(Uint8List array1, Uint8List array2) {
-    // var list = Uint8List(array1.length + array2.length);
-
-    // for (int i = 0; i < array1.length; i++) {
-    //   list[i] = array1[i];
-    // }
-    // for (int i = 0; i < array2.length; i++) {
-    //   list[array1.length + i] = array2[i];
-    // }
-
-    // return Uint8List.fromList(list);
     return insert(array1, array1.length, array2);
   }
 
