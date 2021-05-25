@@ -1,3 +1,4 @@
+import 'package:asset_button/image_loader.dart';
 import 'package:asset_button/widget_asset_image.dart';
 import 'package:asset_button/widget_image_button.dart';
 import 'package:flutter/material.dart';
@@ -29,14 +30,33 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            // direct load image
+            FutureBuilder<Image?>(
+              builder: (context, snap) {
+                if (!snap.hasData) return Container();
+                final image = snap.data;
+                if (image == null) return Container();
+                return Container(child: image);
+              },
+              future: ImageLoader.load(
+                assetPath: 'assets/images/bkg_code.png',
+                cropRect: Rect.fromLTWH(0, 0, 100, 100),
+              ),
+            ),
             // background image
-            WidgetAssetImage(assetPath: 'assets/images/bkg_code.png'),
+            WidgetAssetImage(
+              assetPath: 'assets/images/bkg_code.png',
+              // scale to device ratio
+              scaleDeviceRatio: false,
+            ),
             // independent icon image
             WidgetImageButton(
               imageNormal:
                   WidgetAssetImage(assetPath: 'assets/images/icon_normal.png'),
               imageHover:
                   WidgetAssetImage(assetPath: 'assets/images/icon_hover.png'),
+              // NO animation
+              animate: false,
               onTap: () {
                 print('independent icon image button');
               },

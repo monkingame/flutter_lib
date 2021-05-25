@@ -13,12 +13,6 @@ e.g. demo app
 
 ![demo app](https://i.ibb.co/X4CPfcp/demo-app.png)
 
-------
-direct use the image 
-
-```
-WidgetAssetImage(assetPath: 'assets/images/bkg_code.png'),
-```
 
 ------
 use independent image
