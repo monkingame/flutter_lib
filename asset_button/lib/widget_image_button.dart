@@ -14,6 +14,7 @@ class WidgetImageButton extends StatefulWidget {
     required this.imageNormal,
     this.imageHover,
     this.animate = true,
+    this.name,
   }) : super(key: key);
 
   /// image normal
@@ -28,6 +29,8 @@ class WidgetImageButton extends StatefulWidget {
   /// if animate when tapped
   final bool animate;
 
+  final String? name;
+
   @override
   _WidgetImageButtonState createState() => _WidgetImageButtonState();
 }
@@ -36,16 +39,14 @@ class _WidgetImageButtonState extends State<WidgetImageButton>
     with TickerProviderStateMixin {
   late final AnimationController _animationController;
 
-  WidgetAssetImage? _image;
-
   @override
   void initState() {
     _initAnimation();
 
-    _image = widget.imageNormal;
-
     super.initState();
   }
+
+  bool _hover = false;
 
   void _initAnimation() {
     _animationController = AnimationController(
@@ -69,14 +70,13 @@ class _WidgetImageButtonState extends State<WidgetImageButton>
             alignment: FractionalOffset.center,
             transform: Matrix4.identity()..scale(scale, scale),
             child: Container(
-              child: _image,
-            ),
+                child: _hover ? widget.imageHover : widget.imageNormal),
           ),
           onHover: (hover) {
             if (widget.imageHover == null) return;
 
             setState(() {
-              _image = hover ? widget.imageHover : widget.imageNormal;
+              _hover = hover;
             });
           },
           onTap: () async {
@@ -86,7 +86,6 @@ class _WidgetImageButtonState extends State<WidgetImageButton>
               });
             }
 
-            // if (widget.onTap != null) widget.onTap();
             final tap = widget.onTap;
             if (tap != null) tap();
           },
