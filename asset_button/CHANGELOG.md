@@ -1,4 +1,4 @@
-## [1.1.1] - fix bug
+## [1.1.2] - fix bug
 * bug fixed: after imageNormal changed, the image doesnot update
 ## [1.1.0] - example
 * update example
