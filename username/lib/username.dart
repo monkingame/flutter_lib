@@ -34,7 +34,6 @@ abstract class Username {
     return pure;
   }
 
-  // String get fullname => _getSurName() + _getGivenName();
   String get fullname;
 
   List<String> getFullnames({int count = 0}) {
