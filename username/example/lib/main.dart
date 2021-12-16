@@ -31,10 +31,10 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Text('用户名'),
           onPressed: () {
             final user1 = Username.locale();
-            // print(user1.fullname);
+            print(user1.fullname);
 
             final user2 = Username.locale(surName: '王');
-            print(user2.fullname);
+            // print(user2.fullname);
           },
         ),
       ),
