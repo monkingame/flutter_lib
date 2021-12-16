@@ -1,35 +1,34 @@
-import 'dart:math';
+import 'username.dart';
 
-class DummyUsernames {
-  final String? surName;
-  final String? firstName;
+class CNUsername extends Username {
+  // final String? surName;
+  // final String? firstName;
+  // CNUsername({this.surName, this.firstName});
 
-  DummyUsernames({this.surName, this.firstName});
+  // String getSurName() {
+  //   if (surName != null) return surName!;
+  //   final rand = Random();
+  //   final index = rand.nextInt(topSurNames.length);
+  //   return topSurNames[index];
+  // }
 
-  String _getSurName() {
-    if (surName != null) return surName!;
-    final rand = Random();
-    final index = rand.nextInt(_topSurNames.length);
-    return _topSurNames[index];
-  }
+  // String getFirstName() {
+  //   if (firstName != null) return firstName!;
+  //   final rand = Random();
+  //   final index = rand.nextInt(topFirstNames.length);
+  //   return topFirstNames[index];
+  // }
 
-  String _getFirstName() {
-    if (firstName != null) return firstName!;
-    final rand = Random();
-    final index = rand.nextInt(topFirstNames.length);
-    return topFirstNames[index];
-  }
+  // String get fullname => getSurName() + getFirstName();
 
-  String get fullname => _getSurName() + _getFirstName();
-
-  List<String> getFullnames(int count) {
-    if (count <= 0) return [fullname];
-    final list = List.generate(count, (_) => fullname);
-    return list;
-  }
+  // List<String> getFullnames(int count) {
+  //   if (count <= 0) return [fullname];
+  //   final list = List.generate(count, (_) => fullname);
+  //   return list;
+  // }
 
   // 姓氏
-  final _topSurNames = [
+  final topSurNames = [
     '王',
     '李',
     '张',

@@ -27,8 +27,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(title: Text('username')),
       body: Center(
         child: ElevatedButton(
-          onPressed: () {},
           child: Text('用户名'),
+          onPressed: () {},
         ),
       ),
     );
