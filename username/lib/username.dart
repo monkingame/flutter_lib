@@ -36,7 +36,7 @@ abstract class Username {
     return list;
   }
 
-  factory Username.locale(
+  factory Username._locale(
       {LanguageCode lang = LanguageCode.CN,
       String? surName,
       String? givenName}) {
@@ -47,6 +47,6 @@ abstract class Username {
     throw UnimplementedError();
   }
 
-  factory Username.cn({String? surName, String? givenName}) => Username.locale(
+  factory Username.cn({String? surName, String? givenName}) => Username._locale(
       lang: LanguageCode.CN, surName: surName, givenName: givenName);
 }

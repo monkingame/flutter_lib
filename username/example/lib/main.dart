@@ -30,11 +30,14 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ElevatedButton(
           child: Text('用户名'),
           onPressed: () {
-            final user1 = Username.locale();
+            // final user1 = Username.locale();
             // print(user1.fullname);
 
             final user2 = Username.cn();
             print(user2.fullname);
+
+            final user3 = Username.cn();
+            print(user3.getFullnames(count: 10));
           },
         ),
       ),
