@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
               final user5 = Username.en();
               // Scarlett Morris, Micah Doherty, Samuel Sullivan, Makayla Turner, Ethan Miller, Braxton Perez, Nevaeh MacDonald, Natalie Bennett, Kayla Carter, Oakley Reyes
-              // (实际名称随机产生)
+              // (actual usernames generated random)
               print(user5.getFullnames(count: 10));
             },
           ),

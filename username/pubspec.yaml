@@ -1,7 +1,7 @@
 name: username
-description: A new Flutter package project.
-version: 0.0.1
-homepage:
+description: generate usernames
+version: 0.1.0
+homepage: https://github.com/monkingame/flutter_lib/tree/main/username
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
