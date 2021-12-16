@@ -1,8 +1,9 @@
 library username;
 
 import 'dart:math';
-import 'package:username/cn_username.dart';
 import 'language_code.dart';
+import 'username_cn.dart';
+import 'username_en.dart';
 
 abstract class Username {
   final String? surName;
@@ -42,6 +43,10 @@ abstract class Username {
       String? givenName}) {
     if (lang == LanguageCode.CN) {
       return CNUsername(surName: surName, givenName: givenName);
+    }
+
+    if (lang == LanguageCode.EN) {
+      return ENUsername(surName: surName, givenName: givenName);
     }
 
     throw UnimplementedError();

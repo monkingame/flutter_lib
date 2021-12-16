@@ -38,6 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
             final user3 = Username.cn();
             print(user3.getFullnames(count: 10));
+
+            final user4 = Username.cn(surName: '王');
+            print(user4.getFullnames(count: 10));
           },
         ),
       ),
