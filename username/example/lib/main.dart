@@ -33,8 +33,8 @@ class _MyHomePageState extends State<MyHomePage> {
             final user1 = Username.locale();
             // print(user1.fullname);
 
-            final user2 = Username.locale(surName: '孙');
-            // print(user2.fullname);
+            final user2 = Username.locale(surName: '王');
+            print(user2.fullname);
           },
         ),
       ),
