@@ -59,6 +59,7 @@ abstract class Username {
     return list;
   }
 
+  /// factory locale
   factory Username._locale(
       {LanguageCode lang = LanguageCode.CN,
       String? surName,
@@ -74,9 +75,11 @@ abstract class Username {
     throw UnimplementedError();
   }
 
+  /// factory cn: get Chinese usernames
   factory Username.cn({String? surName, String? givenName}) => Username._locale(
       lang: LanguageCode.CN, surName: surName, givenName: givenName);
 
+  /// factory en: get English usernames
   factory Username.en({String? surName, String? givenName}) => Username._locale(
       lang: LanguageCode.EN, surName: surName, givenName: givenName);
 }
