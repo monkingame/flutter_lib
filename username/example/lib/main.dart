@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:username/username.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,7 +30,11 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ElevatedButton(
           child: Text('用户名'),
           onPressed: () {
-            // final
+            final user1 = Username.locale();
+            // print(user1.fullname);
+
+            final user2 = Username.locale(surName: '孙');
+            // print(user2.fullname);
           },
         ),
       ),

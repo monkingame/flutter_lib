@@ -3,7 +3,8 @@ import 'username.dart';
 class CNUsername extends Username {
   // final String? surName;
   // final String? firstName;
-  // CNUsername({this.surName, this.firstName});
+  CNUsername({String? surName, String? givenName})
+      : super(surName: surName, givenName: givenName);
 
   // String getSurName() {
   //   if (surName != null) return surName!;
