@@ -54,4 +54,7 @@ abstract class Username {
 
   factory Username.cn({String? surName, String? givenName}) => Username._locale(
       lang: LanguageCode.CN, surName: surName, givenName: givenName);
+
+  factory Username.en({String? surName, String? givenName}) => Username._locale(
+      lang: LanguageCode.EN, surName: surName, givenName: givenName);
 }
