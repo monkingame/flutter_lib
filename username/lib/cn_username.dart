@@ -1,32 +1,8 @@
 import 'username.dart';
 
 class CNUsername extends Username {
-  // final String? surName;
-  // final String? firstName;
   CNUsername({String? surName, String? givenName})
       : super(surName: surName, givenName: givenName);
-
-  // String getSurName() {
-  //   if (surName != null) return surName!;
-  //   final rand = Random();
-  //   final index = rand.nextInt(topSurNames.length);
-  //   return topSurNames[index];
-  // }
-
-  // String getFirstName() {
-  //   if (firstName != null) return firstName!;
-  //   final rand = Random();
-  //   final index = rand.nextInt(topFirstNames.length);
-  //   return topFirstNames[index];
-  // }
-
-  // String get fullname => getSurName() + getFirstName();
-
-  // List<String> getFullnames(int count) {
-  //   if (count <= 0) return [fullname];
-  //   final list = List.generate(count, (_) => fullname);
-  //   return list;
-  // }
 
   // 姓氏
   List<String> get topSurNames {
@@ -37,9 +13,10 @@ class CNUsername extends Username {
   }
 
   // 名称
-  List<String> get topFirstNames {
+  List<String> get topGivenNames {
     final names =
         '建国,建华,国华,和平,明,建平,军,平,志明,徳明,勇,伟,建军,强,斌,刚,涛,波,辉,磊,超,鹏,杰,浩,鑫,帅,俊杰,宇,浩然,浩宇,宇轩,子轩,宇航,皓轩,子豪,浩轩,子涵,秀英,桂英,秀兰,玉兰,桂兰,秀珍,凤英,玉珍,玉英,兰英,英,萍,玉梅,红,丽,敏,艳,芳,静,霞,红梅,燕,娟,娜,丹,玲,婷,婷婷,雪,倩,欣怡,悦,佳怡,颖,雨欣,梓涵,诗涵,梓宣,紫涵,雨涵,一诺';
+
     return names.split(',');
   }
 }

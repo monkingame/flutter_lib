@@ -2,7 +2,6 @@ library username;
 
 import 'dart:math';
 import 'package:username/cn_username.dart';
-
 import 'language_code.dart';
 
 abstract class Username {
@@ -12,7 +11,7 @@ abstract class Username {
   Username({this.surName, this.givenName});
 
   List<String> get topSurNames;
-  List<String> get topFirstNames;
+  List<String> get topGivenNames;
 
   String _getSurName() {
     if (surName != null) return surName!;
@@ -21,17 +20,14 @@ abstract class Username {
     return topSurNames[index];
   }
 
-  String _getFirstName() {
+  String _getGivenName() {
     if (givenName != null) return givenName!;
     final rand = Random();
-    final index = rand.nextInt(topFirstNames.length);
-    return topFirstNames[index];
+    final index = rand.nextInt(topGivenNames.length);
+    return topGivenNames[index];
   }
 
-  // String get fullname;
-  // List<String> getFullnames(int count);
-
-  String get fullname => _getSurName() + _getFirstName();
+  String get fullname => _getSurName() + _getGivenName();
 
   List<String> getFullnames({int count = 0}) {
     if (count <= 0) return [fullname];
@@ -49,4 +45,7 @@ abstract class Username {
 
     throw UnimplementedError();
   }
+
+  factory Username.cn({String? surName, String? givenName}) => Username.locale(
+      lang: LanguageCode.CN, surName: surName, givenName: givenName);
 }
