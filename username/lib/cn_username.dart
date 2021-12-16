@@ -4,6 +4,8 @@ class CNUsername extends Username {
   CNUsername({String? surName, String? givenName})
       : super(surName: surName, givenName: givenName);
 
+  String get fullname => getSurName() + getGivenName();
+
   // 姓氏
   List<String> get topSurNames {
     final names =

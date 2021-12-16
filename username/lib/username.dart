@@ -13,21 +13,22 @@ abstract class Username {
   List<String> get topSurNames;
   List<String> get topGivenNames;
 
-  String _getSurName() {
+  String getSurName() {
     if (surName != null) return surName!;
     final rand = Random();
     final index = rand.nextInt(topSurNames.length);
     return topSurNames[index];
   }
 
-  String _getGivenName() {
+  String getGivenName() {
     if (givenName != null) return givenName!;
     final rand = Random();
     final index = rand.nextInt(topGivenNames.length);
     return topGivenNames[index];
   }
 
-  String get fullname => _getSurName() + _getGivenName();
+  // String get fullname => _getSurName() + _getGivenName();
+  String get fullname;
 
   List<String> getFullnames({int count = 0}) {
     if (count <= 0) return [fullname];
