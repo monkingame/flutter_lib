@@ -4,7 +4,7 @@ class ENUsername extends Username {
   ENUsername({String? surName, String? givenName})
       : super(surName: surName, givenName: givenName);
 
-  String get fullname => getSurName() + getGivenName();
+  String get fullname => getGivenName() + ' ' + getSurName();
 
   // 姓氏
   List<String> get topSurNames {

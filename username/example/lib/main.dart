@@ -47,11 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           ElevatedButton(
             child: Text('测试'),
-            onPressed: () {
-              final names = Username.en().topSurNames;
-              names.sort();
-              print(names);
-            },
+            onPressed: () {},
           ),
         ],
       ),
