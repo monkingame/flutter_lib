@@ -17,8 +17,10 @@ class ENUsername extends Username {
 
   // 名称
   List<String> get topGivenNames {
-    final names = '';
+    final names =
+        'William, John, James, Jacob, Christopher, Joshua, Michael, Jackson, Jayden, Ethan, Tyler, Aiden, Joseph, Noah, Matthew, Anthony, Daniel, Angel, Alexander, Jose, Jesus, Landon, Hunter, David, Andrew, Gabriel, Elijah, Ryan, Nicholas, Samuel, Kevin, Isaiah, Logan, Carter, Gavin, Benjamin, Brayden, Christian, Caleb, Jack, Mason, Chase, Wyatt, Owen, Brody, Luis, Carlos, Diego, Sebastian, Juan, Adrian, Isaac, Evan, Emma, Madison, Addison, Ava, Emily, Chloe, Anna, Hannah, Isabella, Elizabeth, Abigail, Sophia, Olivia, Alyssa, Mia, Samantha, Brooklyn, Ashley, Natalie, Julia, Grace, Alexis, Brianna, Katherine, Lily, Hailey, Kayla, Lillian, Ella, Taylor, Makayla, Sarah, Nevaeh, Avery, Paola, Genesis, Gabriela, Nicole, Alondra, Nathan, Liam, Josiah, Ian, Yadiel, Allison, Charlotte, Zoe, Faith, Valeria, Kamila, Camila, Amanda, Andrea, Adriana, Alanis, Gabriella, Kaylee, Henry, Dylan, Bentley, Connor, Austin, Leah, Khloe, Aaliyah, Lucas, Easton, Parker, Amelia, Victoria, Sofia, Gianna, Aubrey, Maya, Mary, Harper, Evelyn, Lucy, Zoey, Robert, Micah, Jeremiah, Eli, Jaxon, Luke, Oliver, Cameron, Levi, Braxton, Jace, Layla, Riley, Naomi, Claire, Eleanor, Aria, Nora, Paisley, Lincoln, Ryker, Aubree, Serenity, Sadie, Charles, Ezekiel, Hudson, Colton, Brantley, Aurora, Alexandra, Lydia, Ariana, Ellie, Hadley, Ruby, Oakley, Julian, Ezra, Skylar, Caroline, Hazel, Scarlett, Savannah, Mila, Charlottte, Piper, Aspen, Grayson, Theodore, Kingston, Sawyer, Bridger, Cooper, Ximena';
 
-    return names.split(',');
+    // return names.split(',');
+    return splitCommaString(names);
   }
 }
