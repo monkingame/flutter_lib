@@ -28,6 +28,12 @@ abstract class Username {
     return topGivenNames[index];
   }
 
+  List<String> splitCommaString(String input) {
+    final list = input.split(',');
+    final pure = list.map((name) => name.trim()).toList();
+    return pure;
+  }
+
   // String get fullname => _getSurName() + _getGivenName();
   String get fullname;
 
