@@ -5,15 +5,26 @@ import 'language_code.dart';
 import 'username_cn.dart';
 import 'username_en.dart';
 
+/// username class
 abstract class Username {
+  /// surname
   final String? surName;
+
+  /// given name
   final String? givenName;
 
+  /// constructor
   Username({this.surName, this.givenName});
 
+  /// top sur names
   List<String> get topSurNames;
+
+  /// top given names
   List<String> get topGivenNames;
 
+  /// get random surname.
+  /// if specified surname,then surname fixed.
+  /// or else use top random surname
   String getSurName() {
     if (surName != null) return surName!;
     final rand = Random();
@@ -21,6 +32,9 @@ abstract class Username {
     return topSurNames[index];
   }
 
+  /// get random given name.
+  /// if specified given name,then given name fixed.
+  /// or else use top random given name
   String getGivenName() {
     if (givenName != null) return givenName!;
     final rand = Random();
@@ -28,12 +42,15 @@ abstract class Username {
     return topGivenNames[index];
   }
 
+  /// tool: split string with comma
   List<String> splitCommaString(String input) {
     final list = input.split(',');
     final pure = list.map((name) => name.trim()).toList();
     return pure;
   }
 
+  /// get fullname
+  /// (e.g. Chinese fullname is : surname+given name)
   String get fullname;
 
   List<String> getFullnames({int count = 0}) {

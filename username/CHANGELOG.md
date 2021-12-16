@@ -1,3 +1,6 @@
+## 0.1.2
+* documents
+
 ## 0.1.1
 * documents
 * 

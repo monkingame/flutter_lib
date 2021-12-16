@@ -1,6 +1,6 @@
 name: username
-description: generate usernames
-version: 0.1.1
+description: generate random dummy usernames(Chinese and English support now),using top surname and given name in recent years.
+version: 0.1.2
 homepage: https://github.com/monkingame/flutter_lib/tree/main/username
 
 environment:
