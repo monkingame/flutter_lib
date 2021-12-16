@@ -3,6 +3,8 @@ library username;
 import 'dart:math';
 import 'package:username/cn_username.dart';
 
+import 'language_code.dart';
+
 abstract class Username {
   final String? surName;
   final String? givenName;
@@ -38,8 +40,10 @@ abstract class Username {
   }
 
   factory Username.locale(
-      {String langCode = 'CN', String? surName, String? givenName}) {
-    if (langCode.toUpperCase() == 'CN') {
+      {LanguageCode lang = LanguageCode.CN,
+      String? surName,
+      String? givenName}) {
+    if (lang == LanguageCode.CN) {
       return CNUsername(surName: surName, givenName: givenName);
     }
 
