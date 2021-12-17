@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
       print(Username.cn().fullname);
 
       // 李红梅, 李波, 邵玉兰, 史芳, 陶梓涵, 汪超
-      // 姚宇 (实际名称随机产生)
+      // (实际名称随机产生)
       print(Username.cn().getFullnames(count: 6));
     };
 
