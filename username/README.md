@@ -25,7 +25,7 @@ print(Username.cn().fullname);
 // (实际名称随机产生)
 print(Username.cn().getFullnames(count: 6));
 
-// 王浩轩, 王浩轩, 王倩, 王婷婷, 王紫涵, 王梓涵
+// 王建军, 王敏, 王红, 王皓轩, 王波, 王梓宣
 // (实际名称随机产生)
 print(Username.cn(surName: '王').getFullnames(count: 6));
 ```
