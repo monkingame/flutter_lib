@@ -49,6 +49,9 @@ abstract class Username {
     return pure;
   }
 
+  @override
+  String toString() => fullname;
+
   /// get fullname
   /// (e.g. Chinese fullname is : surname+given name)
   String get fullname;
