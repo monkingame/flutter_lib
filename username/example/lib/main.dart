@@ -1,27 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:username/username.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: MyHomePage(),
-    );
-  }
+  Widget build(BuildContext context) =>
+      MaterialApp(home: MyHomePage(), debugShowCheckedModeBanner: false);
 }
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final VoidCallback onTap = () {
@@ -41,10 +29,8 @@ class _MyHomePageState extends State<MyHomePage> {
     };
 
     return Scaffold(
-      appBar: AppBar(title: Text('username')),
       body: Center(
-        child: ElevatedButton(child: Text('usernames'), onPressed: onTap),
-      ),
+          child: ElevatedButton(child: Text('username'), onPressed: onTap)),
     );
   }
 }
