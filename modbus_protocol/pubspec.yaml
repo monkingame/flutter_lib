@@ -4,8 +4,8 @@ version: 2.0.1
 homepage: https://github.com/monkingame/flutter_lib/tree/main/modbus_protocol
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
@@ -15,6 +15,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+# Use the byte_util package from this repository while developing.
+# The declared constraint above stays `^3.0.0` so published metadata is unchanged.
+dependency_overrides:
+  byte_util:
+    path: ../byte_util
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

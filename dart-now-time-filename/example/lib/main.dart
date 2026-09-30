@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // 20210510-181946-116-061
             print(NowFilename.gen());
             // genNowFilename() is deprecated. use gen() instead.
-            print(NowFilename.genNowFilename());
+            print(NowFilename.gen(prefix: null));
 
             // header-20210510-181946-118-059
             print(NowFilename.gen(prefix: 'header-'));

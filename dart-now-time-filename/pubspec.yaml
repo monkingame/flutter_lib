@@ -4,7 +4,7 @@ version: 2.0.2
 homepage: https://github.com/monkingame/flutter_lib/tree/main/dart-now-time-filename
 
 environment:
-  sdk: ">=2.13.0 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:

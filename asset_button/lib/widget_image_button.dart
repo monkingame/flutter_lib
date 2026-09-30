@@ -1,6 +1,5 @@
 library asset_button;
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'widget_asset_image.dart';
@@ -68,7 +67,7 @@ class _WidgetImageButtonState extends State<WidgetImageButton>
         return InkWell(
           child: Transform(
             alignment: FractionalOffset.center,
-            transform: Matrix4.identity()..scale(scale, scale),
+            transform: Matrix4.identity()..scaleByDouble(scale, scale, 1.0, 1.0),
             child: Container(
                 child: _hover ? widget.imageHover : widget.imageNormal),
           ),

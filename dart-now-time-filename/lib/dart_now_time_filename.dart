@@ -4,9 +4,9 @@ library dart_now_time_filename;
 class NowFilename {
   /// generate now file name
   static String genSpecifyTime({
-    String? prefix: '',
-    String? ext: '',
-    String? seperator: '-',
+    String? prefix = '',
+    String? ext = '',
+    String? seperator = '-',
     required DateTime? time,
   }) {
     // final now = DateTime.now();
@@ -28,9 +28,9 @@ class NowFilename {
   }
 
   static String gen({
-    String? prefix: '',
-    String? ext: '',
-    String? seperator: '-',
+    String? prefix = '',
+    String? ext = '',
+    String? seperator = '-',
   }) {
     return genSpecifyTime(
         prefix: prefix, ext: ext, seperator: seperator, time: DateTime.now());
@@ -39,7 +39,7 @@ class NowFilename {
   @Deprecated('Use NowFilename.gen() instead. '
       'This feature was deprecated after v2.0')
   static String genNowFilename(
-      {String? prefix: '', String? ext: '', String? seperator: '-'}) {
+      {String? prefix = '', String? ext = '', String? seperator = '-'}) {
     return gen(prefix: prefix, ext: ext, seperator: seperator);
   }
 }

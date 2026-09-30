@@ -19,6 +19,10 @@ class ModelDaemonWebSocket extends ChangeNotifier {
   /// data receiverd
   dynamic _data;
 
+  /// whether the daemon was closed explicitly.
+  /// when true, no reconnect or notifications happen anymore.
+  bool _closed = false;
+
   /// constrcutor
   ModelDaemonWebSocket({
     required this.urlServer,
@@ -27,6 +31,7 @@ class ModelDaemonWebSocket extends ChangeNotifier {
 
   /// connect to server
   void initConnection() {
+    _closed = false;
     _channel = IOWebSocketChannel.connect(urlServer);
 
     _listenWebSocket();
@@ -39,11 +44,13 @@ class ModelDaemonWebSocket extends ChangeNotifier {
       _onData,
       onDone: () {
         _closeConnect();
+        if (_closed) return;
         _reConnect();
         notifyListeners();
       },
       onError: (err) {
         _closeConnect();
+        if (_closed) return;
         _reConnect();
         notifyListeners();
       },
@@ -57,6 +64,7 @@ class ModelDaemonWebSocket extends ChangeNotifier {
   }
 
   void _onData(data) {
+    if (_closed) return;
     _data = data;
 
     notifyListeners();
@@ -91,10 +99,11 @@ class ModelDaemonWebSocket extends ChangeNotifier {
   }
 
   void _reConnect() {
+    if (_closed) return;
     Future.delayed(
       Duration(milliseconds: reconectMilliseconds),
       () {
-        if (_channel != null) return;
+        if (_closed || _channel != null) return;
         _channel = IOWebSocketChannel.connect(urlServer);
 
         _listenWebSocket();
@@ -111,7 +120,8 @@ class ModelDaemonWebSocket extends ChangeNotifier {
 
   /// close connection
   void close() {
-    if (_channel != null) _channel?.sink.close();
+    _closed = true;
+    _closeConnect();
 
     super.dispose();
   }

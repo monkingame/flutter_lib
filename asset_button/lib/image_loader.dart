@@ -1,4 +1,3 @@
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image/image.dart' as libImage;
@@ -36,8 +35,13 @@ class ImageLoader {
     var rect = (cropRect == null)
         ? Rect.fromLTWH(0, 0, image.width.toDouble(), image.height.toDouble())
         : cropRect;
-    final crop = libImage.copyCrop(image, rect.left.toInt(), rect.top.toInt(),
-        rect.width.toInt(), rect.height.toInt());
+    final crop = libImage.copyCrop(
+      image,
+      x: rect.left.toInt(),
+      y: rect.top.toInt(),
+      width: rect.width.toInt(),
+      height: rect.height.toInt(),
+    );
     final img = Image.memory(
       Uint8List.fromList(libImage.encodePng(crop)),
       width: crop.width.toDouble(),
@@ -54,7 +58,7 @@ class ImageLoader {
     final decoder = _getDecoderByFileExt();
     if (decoder == null) return null;
 
-    libImage.Image? image = decoder.decodeImage(bytes);
+    libImage.Image? image = decoder.decode(bytes);
     return image;
   }
 
