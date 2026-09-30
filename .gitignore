@@ -1,0 +1,9 @@
+# 本工作区辅助/缓存目录：沙箱 flutter 工具链的运行时产物，一律不入库
+# .flutter-root/  = 影子 SDK 根（flutter 命令必需，勿删，但绝不该提交）
+# .home/          = analyze 用的假 HOME（~/.dartServer 等状态）
+# .pub-cache/     = 本地 PUB_CACHE 包缓存
+.flutter-root/
+.home/
+.pub-cache/
+# 验证过程日志（baseline_log/ 全部是命令输出存档，不入库）
+baseline_log/
