@@ -7,3 +7,5 @@
 .pub-cache/
 # 验证过程日志（baseline_log/ 全部是命令输出存档，不入库）
 baseline_log/
+# .toolchain/ = 免 root 用户态编译工具链（apt deb 解包，启动 GUI 用，不入库）
+.toolchain/
