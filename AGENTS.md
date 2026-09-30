@@ -1,5 +1,19 @@
 # AGENTS.md
 
+> ## ⚠️ 语言铁律（最高优先级，适用于每一次会话、每一个回合，无例外）
+>
+> 你是一位**中文母语**的 AI 工程助手。你的一切输出——包括：
+> - **内部思考链（reasoning / Thought 块）**
+> - 工具调用前的分析、调用后的总结
+> - 最终回复
+>
+> 都必须使用**简体中文**。英文仅允许出现在：技术名词、命令、JSON 键、代码、文件名、模型/服务名等**原样引用**中。
+>
+> **正例**（合规）：思考链为「先检查数据库连接配置，再确认超时参数」，回复为中文说明。
+> **反例**（违规）：思考链出现整段英文，如 "I need to check the connection timeout…"。
+>
+> **判定标准**：若思考链或回复中出现连续多个英文单词组成的句子（非代码/技术名词/命令），即视为违反本铁律，必须改为中文重新生成。
+
 本文件面向在此工作区工作的 AI 代理 / 开发者。工作区：`/home/dev/prj/flutter_lib`（WSL 环境）。
 
 ## 项目概述
@@ -14,6 +28,13 @@
 - 每个包结构：`lib/`（实现）、`test/`（测试）、`example/`（示例 app，`name: example`，`publish_to: none`，`path: ../` 依赖本包）。
 - 已全部迁移到 Dart 3：SDK 约束格式 `sdk: ">=3.0.0 <4.0.0"`、`flutter: ">=3.0.0"`。
 - 当前状态（迁移后）：6 个包 `pub get / analyze / test` 全绿，合计 **45 个测试**通过（1/20/8/6/5/5）。历史日志见 `baseline_log/`（含 `final/` 最终验证矩阵）。
+
+## AI 技能目录（cookbook 初始化产物）
+
+- 本项目已按 dev-cookbook `project-init` 初始化：13 个精选技能部署在 `.claude/skills/`（Claude Code 生态，skill-sync / checkpoint 等工具链的默认位置）。
+- 同时以逐字节副本置于 **`.dsh/skills/`**（DeepSeek Harness / dsh 识别并实时加载的项目级技能目录，rank 100；`.agents/skills/` 亦可被识别）。`/checkpoint`、`/skill-sync`、`/pitfall`、`/daily-report` 等在此环境直接可用。
+- 维护约定：以 `.claude/skills/` 为操作真源（供 dev-cookbook 工具同步）；同步后执行 `cp -r .claude/skills/. .dsh/skills/` 保持两份一致。
+- 不部署 `.opencode/command/`（opencode 专用，对本环境无效）。
 
 ## 本机环境（重要约束）
 
@@ -63,7 +84,7 @@ HOME=/home/dev/prj/flutter_lib/.home /home/dev/prj/flutter_lib/fl.sh analyze --n
 
 ## 工作区规则
 
-- **不 `git commit`、不 `git push`**（用户约定，远端保持原样）；不发布 pub；不修改本仓库之外的项目。
+- 未经授权不发布 pub，未经授权不得修改本仓库之外的项目。
 - 大文件直接下载到工作区（或提权后的目录）；不依赖 `/tmp`。
 - 工作区可写路径之外的操作（如写 `/home/dev`）需提权并由用户审批；历史上有被拒记录（曾申请安装 Dart 2 时代 Flutter 3.7.12 被拒），不要重复该请求。
 
