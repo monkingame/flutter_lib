@@ -8,7 +8,7 @@
 #   CLAUDE.md  单行 "@AGENTS.md"（Claude Code 官方 @import 语法）
 #
 # 作用域（硬性，不可逾越）：每个项目一份副本，各管各的——
-#   安装态 <项目>/.claude/skills/agents-md-migrate/migrate.sh：
+#   安装态 <项目>/.agents/skills/agents-md-migrate/migrate.sh：
 #     所属项目 = 副本位置向上 3 级；脚本只读写该项目根下的 CLAUDE.md / AGENTS.md。
 #   父目录普查、跨项目、批量（--all）一律不支持；传入任何目标目录参数直接报错。
 #   非安装态（库内模板）以当前 git 仓库为作用域，同样仅限单项目（仅供库内测试）。
@@ -38,13 +38,13 @@ resolve_root() {
   local script_dir top
   script_dir=$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)
   case "$script_dir" in
-    */.claude/skills/agents-md-migrate)
+    */.agents/skills/agents-md-migrate)
       ROOT=$(cd -P "$script_dir/../../.." && pwd)     # 安装态：项目根 = 副本向上 3 级
       ;;
     *)
       # 库内模板 / 非标准位置：以当前 git 仓库为作用域，同样仅限单项目
       top=$(git rev-parse --show-toplevel 2>/dev/null) || top=''
-      [ -n "$top" ] || { echo "❌ 无法确定作用域：本副本不在项目的 .claude/skills/ 下，且当前目录不是 git 仓库（拒绝执行）" >&2; exit 2; }
+      [ -n "$top" ] || { echo "❌ 无法确定作用域：本副本不在项目的 .agents/skills/ 下，且当前目录不是 git 仓库（拒绝执行）" >&2; exit 2; }
       ROOT=$(cd -P "$top" && pwd)
       ;;
   esac

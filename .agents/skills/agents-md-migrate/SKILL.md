@@ -9,13 +9,13 @@ description: 指令真源迁移——把本项目的指令源从 CLAUDE.md 翻�
 
 **分发模型：每个项目一份副本，各管各的。**
 
-- 本 skill 的**唯一作用对象**是它被复制进的那个项目，即 `.claude/skills/agents-md-migrate/` 所在项目的根。
+- 本 skill 的**唯一作用对象**是它被复制进的那个项目，即 `.agents/skills/agents-md-migrate/` 所在项目的根。
 - 只读 / 只写该项目根下的两个文件：`CLAUDE.md`、`AGENTS.md`。
 - **明令禁止**（无例外）：
   - 扫描 / 检查 / 读取 / 修改父目录、兄弟项目或任何其他项目——**哪怕是"只读看看"也不允许**；
   - 批量迁移——脚本没有 `--all`，也不接受父目录 / 目标目录等任何位置参数；
   - 试图用 `cd` 或绝对路径把作用域指向别处——作用域由副本自身的安装位置决定，任何参数都改变不了。
-- 脚本内置越界自检：副本位于 `<项目>/.claude/skills/agents-md-migrate/` 时，作用域锁定为该项目，传入任何目标路径直接报错退出（exit 2）。
+- 脚本内置越界自检：副本位于 `<项目>/.agents/skills/agents-md-migrate/` 时，作用域锁定为该项目，传入任何目标路径直接报错退出（exit 2）。
 - 需要迁移多个项目时：**分别进入每个项目、执行各自副本**，一次一个项目；绝不代跑、不顺带、不批量。
 
 ## 背景（为什么升级）
@@ -37,7 +37,7 @@ description: 指令真源迁移——把本项目的指令源从 CLAUDE.md 翻�
 本 skill 目录内的 **`migrate.sh` 是唯一执行入口**。agent 读取本文件后，必须用 shell 工具执行该脚本；**禁止**用自然语言手工模拟迁移、禁止绕过断言手改文件、禁止在脚本失败后"人肉修复"——只报告并停下：
 
 ```bash
-SK=".claude/skills/agents-md-migrate/migrate.sh"   # 在所属项目内执行
+SK=".agents/skills/agents-md-migrate/migrate.sh"   # 在所属项目内执行
 
 bash "$SK" scan                  # ① 只读检查本项目指令文件状态（不改任何文件）
 bash "$SK" migrate [--dry-run]   # ② 迁移本项目（--dry-run 只打印计划）
@@ -51,7 +51,7 @@ bash "$SK" migrate [--dry-run]   # ② 迁移本项目（--dry-run 只打印计�
 2. **一切操作走 `migrate.sh`**（唯一执行入口；禁止手工模拟）
 3. **不覆盖真实内容**：`AGENTS.md` 仅在"不存在"或"旧桥接指针"（< 1KB 且匹配桥接文本）时可覆盖；其他内容一律 CONFLICT，停止并报告
 4. **失败自动回滚**：断言失败 → 脚本自动恢复两文件到执行前；不得手工补修
-5. **只动两文件**：仅 `CLAUDE.md` / `AGENTS.md`；不碰 `.claude/`、`.opencode/` 等其他任何文件
+5. **只动两文件**：仅 `CLAUDE.md` / `AGENTS.md`；不碰 `.agents/` 等其他任何文件
 6. **迁移后必须验证**（见下节）
 
 ## 分类判定（scan 输出口径，仅针对本项目）
@@ -88,7 +88,7 @@ bash "$SK" migrate [--dry-run]   # ② 迁移本项目（--dry-run 只打印计�
 - **AGENTS.md 为真实内容（非旧桥接）** → CONFLICT（本 skill 不合并、不覆盖）
 - **多项目需求** → 逐个进入项目执行各自副本；本 skill 不提供、也不接受批量模式
 - 旧桥接识别标准：文件 < 1KB 且含文本"统一维护在同目录的 [CLAUDE.md]"（历史过渡方案的指针格式，可直接覆盖）
-- 库内模板（非 `.claude/skills/` 安装态）直接运行 → 以当前 git 仓库为作用域，仅供库内测试；正式使用请先安装/同步到目标项目
+- 库内模板（非 `.agents/skills/` 安装态）直接运行 → 以当前 git 仓库为作用域，仅供库内测试；正式使用请先安装/同步到目标项目
 - 运行环境：Linux / WSL / Git Bash（依赖 `md5sum` 等 coreutils；macOS 需 GNU coreutils，未验证）
 
 ## 设计说明

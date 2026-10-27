@@ -1,11 +1,11 @@
 ---
 name: skill-sync
-description: 跨项目技能同步。dev-cookbook 技能库与本地项目 .claude/skills/ 之间双向同步同功能技能：pull 拉取库中更新并做本地化合并，push 把本地演进通用化提炼回库并自动 checkpoint。含新鲜度校验与冲突询问，无实质差异自动跳过。
+description: 跨项目技能同步。dev-cookbook 技能库与本地项目 .agents/skills/ 之间双向同步同功能技能：pull 拉取库中更新并做本地化合并，push 把本地演进通用化提炼回库并自动 checkpoint。含新鲜度校验与冲突询问，无实质差异自动跳过。
 ---
 
 # skill-sync — 跨项目技能同步
 
-`dev-cookbook` 是通用技能的**聚合库**，各项目 `.claude/skills/` 是它的本地化副本。本 skill 负责两侧的双向同步：
+`dev-cookbook` 是通用技能的**聚合库**，各项目 `.agents/skills/` 是它的本地化副本。本 skill 负责两侧的双向同步：
 
 - **pull（拉取）**：库 → 本地。补齐本地缺失的新内容，并对新内容做本地化适配；本地已有内容和本地化**原样保留**。
 - **push（推送）**：本地 → 库。把本地项目中提炼出的新功能/新思路**通用化**后合并回库，并执行库的 `/checkpoint -y` 让变更落库落远端。
@@ -138,7 +138,7 @@ git -C <repo> log -1 --format=%ci -- <技能目录>
 5. **附件同步**：脚本/参考文件一并通用化；新增技能或 description 变化时，更新 `ai-agent/claudecode/skills/README.md` 索引表
 6. **验证**：diff 摘要 + frontmatter 校验 + 索引完整性
 7. **执行技能库 `/checkpoint -y`**：
-   - 读取 `<技能库>/.claude/skills/checkpoint/SKILL.md`，按其流程在技能库中执行（`-y` 语义：跳过确认）
+   - 读取 `<技能库>/.agents/skills/checkpoint/SKILL.md`，按其流程在技能库中执行（`-y` 语义：跳过确认）
    - **只提交本次同步相关文件**；若技能库存在无关未提交变更，先报告，不夹带
    - 提交说明按 checkpoint 格式，如 `ai-agent/claudecode/skills/<name>: <改动>`
    - push 被拒 → 如实报告，不强行

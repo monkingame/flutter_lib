@@ -112,7 +112,7 @@ description: 通用调研工具——输入关键词/提示词，多源搜索（
 - 已有的调研报告（`research/` 或类似目录）
 - 项目文档（`docs/`、`README.md`、`CLAUDE.md` 等）
 - 项目内可能的部署/参考文档（如 `deploy/`、`docs/man/` 等）
-- 相关的 skill 定义或参考手册（`.claude/skills/` 等）
+- 相关的 skill 定义或参考手册（`.agents/skills/` 等）
 
 已有资料可直接引用，避免重复调研。
 

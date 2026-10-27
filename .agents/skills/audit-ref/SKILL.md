@@ -23,7 +23,7 @@ description: 审计文档引用一致性。扫描所有 .md 文档，验证路�
 ```markdown
 ## 审计配置
 
-- audit.exclude: 排除的路径（glob），默认 `.git/`, `node_modules/`, `.claude/`
+- audit.exclude: 排除的路径（glob），默认 `.git/`, `node_modules/`, `.agents/`
 - audit.skip-fix: 跳过修复的文档列表，这些文档会被审计但不自动修改（如历史记录类文档）
 - audit.auto-checkpoint: 修复后是否自动执行 `/checkpoint -y`，默认 `true`
 - audit.key-docs: 关键文档清单（至少审计的对象），不声明则按默认规则识别
@@ -59,7 +59,7 @@ Glob: **/*  （排除用户配置的路径 + 默认排除项）
 - 项目根目录路径
 - 顶层目录列表
 - 项目关键目录的结构（如 `docs/`、`deploy/` 等下的子目录、计划/日志/参考类文档清单）
-- `.claude/skills/` 下所有 skill 名称（如存在）
+- `.agents/skills/` 下所有 skill 名称（如存在）
 - 各目录下的文件清单及数量
 - 构建完整文件路径集合（用于后续存在性验证）
 
@@ -72,7 +72,7 @@ Glob: **/*.md  （排除用户配置的路径 + 默认排除项）
 得到完整的待审计文档列表。**关键文档必须覆盖**（不限于以下，具体清单可由项目 CLAUDE.md 的 `audit.key-docs` 声明）：
 - 根目录 `CLAUDE.md` / `README.md`
 - 项目核心目录下的计划/记录类文档（如 `deploy/**/plan.md`、`docs/learn/*.md` 等）
-- `.claude/skills/*/SKILL.md`
+- `.agents/skills/*/SKILL.md`
 
 ### 4. 逐文档审计
 

@@ -150,7 +150,7 @@ description: 技术学习一条龙 — 集学习、操作、坑点、参考手�
 2. 时间更近的 = 当前活动域
 3. 在对应日志末尾写入中断标记：`> ⏸️ 中断 — YYYY-MM-DD HH:MM`
 4. 存档当前变更：
-   - 检测本项目 `.claude/skills/checkpoint/` 是否存在
+   - 检测本项目 `.agents/skills/checkpoint/` 是否存在
    - **存在** → 自动调用 `/checkpoint -y`（静默模式，不弹确认，直接 commit + push）
    - **不存在** → 提醒用户"本项目未安装 checkpoint skill，请手动 git add + commit + push"
 5. 原理：pause 通常是赶时间或下班场景，必须稳妥保存，不能卡在确认提示上
@@ -181,7 +181,7 @@ description: 技术学习一条龙 — 集学习、操作、坑点、参考手�
 ## `/master-prj init <项目名>`
 
 1. 创建项目目录和完整骨架（见下方目录结构）
-2. 从 `ai-agent/claudecode/skills/` 复制 checkpoints/daily-report/master-prj 到 `.claude/skills/`
+2. 从 `ai-agent/claudecode/skills/` 复制 checkpoints/daily-report/master-prj 到 `.agents/skills/`
 3. 生成 CLAUDE.md（含 skill 注册表 + 项目概述占位）
 4. 创建空的 `docs/learn/learning-plan.md`、`ops/plan.md` 模板
 5. 创建空的 `docs/bugs-and-pitfalls.md` 模板
@@ -191,7 +191,7 @@ description: 技术学习一条龙 — 集学习、操作、坑点、参考手�
 ```
 <项目名>/
 ├── CLAUDE.md                          ← 自动生成
-├── .claude/skills/
+├── .agents/skills/
 │   ├── master-prj/SKILL.md              ← 从模板复制
 │   ├── checkpoint/SKILL.md            ← 通用（独立命令）
 │   └── daily-report/SKILL.md          ← 通用（独立命令）
