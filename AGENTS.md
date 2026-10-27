@@ -31,10 +31,9 @@
 
 ## AI 技能目录（cookbook 初始化产物）
 
-- 本项目已按 dev-cookbook `project-init` 初始化：13 个精选技能部署在 `.agents/skills/`（Claude Code 生态，skill-sync / checkpoint 等工具链的默认位置）。
-- 同时以逐字节副本置于 **`.agents/skills/`**（DeepSeek Harness / dsh 识别并实时加载的项目级技能目录，rank 100；`.agents/skills/` 亦可被识别）。`/checkpoint`、`/skill-sync`、`/pitfall`、`/daily-report` 等在此环境直接可用。
-- 维护约定：以 `.agents/skills/` 为操作真源（供 dev-cookbook 工具同步）；同步后执行 `cp -r .agents/skills/. .agents/skills/` 保持两份一致。
-- 不部署 `.agents/skills/`（opencode 专用，对本环境无效）。
+- 本项目已按 dev-cookbook `project-init` 初始化：13 个精选技能统一部署在 `.agents/skills/`（跨客户端标准目录）。
+- 不再保留 `.claude`、`.dsh`、`.opencode` 等产品专属技能目录；dsh / opencode / Codex 均直接读取 `.agents/skills/`。
+- 维护约定：以 `.agents/skills/` 为唯一真源，不再维护副本。
 
 ## 本机环境（重要约束）
 
