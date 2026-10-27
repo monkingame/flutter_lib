@@ -32,7 +32,7 @@
 ## AI 技能目录（cookbook 初始化产物）
 
 - 本项目已按 dev-cookbook `project-init` 初始化：13 个精选技能统一部署在 `.agents/skills/`（跨客户端标准目录）。
-- 不再保留 `.claude`、`.dsh`、`.opencode` 等产品专属技能目录；dsh / opencode / Codex 均直接读取 `.agents/skills/`。
+- 不再保留产品专属技能目录；dsh / opencode / Codex 均直接读取 `.agents/skills/`。
 - 维护约定：以 `.agents/skills/` 为唯一真源，不再维护副本。
 
 ## 本机环境（重要约束）
